@@ -1,0 +1,12 @@
+.DS_Store
+__pycache__/
+*.pyc
+backups/
+Store Management (CL)/
+*.pptx
+*.pdf
+research/*-extracted.txt
+.env
+.env.*
+*.pem
+*.key

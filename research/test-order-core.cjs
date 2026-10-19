@@ -1,0 +1,48 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
+const C=require('./order-core.js'),data=JSON.parse(fs.readFileSync(path.join(__dirname,'catalog-data.json'),'utf8')),ps=data.products;
+const find=s=>ps.find(p=>p.name_en.includes(s));
+let state=C.defaultState();
+assert.equal(C.group(state,ps).length,0,'no selections preloaded');
+const mouse=find('Moving Mouse'),clothes=find('Cotton Waffle'),lotion=find('Baby Lotion'),sb=find('Patchwork Cotton Tote');
+const mouseLine=C.addLine(state,mouse);mouseLine.qty=3;C.setStatus(state,mouse,'approved');
+const shirtA=C.addLine(state,clothes);assert.equal(C.setStatus(state,clothes,'approved'),false,'size details required');
+C.editLine(state,clothes,shirtA.id,'size','6–12m');C.editLine(state,clothes,shirtA.id,'qty','2');assert(C.setStatus(state,clothes,'approved'));
+const shirtB=C.addLine(state,clothes,shirtA);shirtB.size='18–24m';shirtB.qty=4;assert.equal(state.items[clothes.id].status,'shortlist','duplicate requires reapproval');C.setStatus(state,clothes,'approved');
+let groups=C.group(state,ps);assert.equal(groups.length,2);assert.equal(groups.find(x=>x.supplier==='Elegant Kids').lines.length,2);
+assert.equal(C.totals(groups.find(x=>x.supplier==='PlanToys').lines).amounts.THB,342);
+assert(C.editLine(state,mouse,mouseLine.id,'qty','5'));assert.equal(C.group(state,ps).some(g=>g.supplier==='PlanToys'),false,'edited approved line excluded');C.setStatus(state,mouse,'approved');
+C.hide(state,mouse);assert.equal(state.items[mouse.id].status,'skip');assert(!C.group(state,ps).some(g=>g.supplier==='PlanToys'));state.items[mouse.id].hidden=false;assert(!C.group(state,ps).some(g=>g.supplier==='PlanToys'),'restoring visibility does not reapprove');
+const l=C.addLine(state,lotion);C.editLine(state,lotion,l.id,'source','lazada');assert.equal(l.unitPrice,229);assert(C.setStatus(state,lotion,'approved'));assert(C.group(state,ps).some(g=>g.supplier==='Khun Organic Baby · Lazada'));
+const usd=C.addLine(state,sb);C.setStatus(state,sb,'approved');const mixed=C.totals([{row:l},{row:usd}]);assert.equal(mixed.amounts.THB,229);assert.equal(mixed.amounts.USD,29.99);
+C.editLine(state,lotion,l.id,'unit','carton');assert.equal(l.unitPrice,null,'unit change must clear incompatible reference price');assert.equal(C.setStatus(state,lotion,'approved'),true);assert.equal(C.totals(C.group(state,ps).find(g=>g.supplier==='Khun Organic Baby · Lazada').lines).unknown.THB,1);
+C.editLine(state,lotion,l.id,'unitPrice','100');C.editLine(state,lotion,l.id,'priceKind','quote');assert.equal(l.priceKind,'quote');C.editLine(state,lotion,l.id,'colour','blue');assert.equal(l.priceKind,'reference','old quote not treated as quote for new variant');C.setStatus(state,lotion,'approved');
+groups=C.group(state,ps);const eg=groups.find(x=>x.supplier==='Elegant Kids');const en=C.message(eg,state.settings,'en'),th=C.message(eg,state.settings,'th');assert(en.includes('6–12m')&&en.includes('18–24m')&&en.includes('84280'));assert(th.includes('จำนวน:')&&th.includes(clothes.name_en)&&th.includes('84280'));assert(!en.includes(mouse.name_en));
+const inMemory=new Map(),storage={getItem:k=>inMemory.get(k)??null,setItem:(k,v)=>inMemory.set(k,v)};
+const rounds=[];for(let run=1;run<=3;run++){assert(C.save(storage,state));state=C.load(storage,ps);const g=C.group(state,ps);rounds.push({run,products:Object.keys(state.items).length,groups:g.length,approvedLines:g.reduce((n,x)=>n+x.lines.length,0),shirtQuantities:state.items[clothes.id].lines.map(r=>r.qty)});assert.deepEqual(state.items[clothes.id].lines.map(r=>r.qty),[2,4]);assert.equal(g.length,3);}
+const clone=JSON.parse(JSON.stringify(state));clone.items[clothes.id].lines[0].qty=0;assert.throws(()=>C.normalize(clone,ps));clone.items[clothes.id].lines[0].qty=2;clone.items[clothes.id].lines[0].source='invented-channel';assert.throws(()=>C.normalize(clone,ps));
+const copy=JSON.parse(JSON.stringify(state));copy.items.unknown={status:'approved',lines:[]};assert.equal(C.normalize(copy,ps).omitted,1);
+const draft=structuredClone(state);draft.items[clothes.id].lines[0].qty=0;draft.items[clothes.id].status='shortlist';C.save(storage,draft);const recovered=C.load(storage,ps);assert.equal(recovered.items[clothes.id].lines[0].qty,0);assert.equal(Object.keys(recovered.items).length,4,'unfinished draft survives reload without losing other choices');
+assert(!C.save({setItem(){throw Error('unavailable');}},state));assert(!C.safeUrl('javascript:alert(1)'));
+const c=state.items[clothes.id].lines[0];c.note='=HYPERLINK("x")';const csv=C.csv(state,ps);assert(csv.includes("'=HYPERLINK"));assert(!csv.includes(mouse.name_en),'skip items absent from CSV');
+// Execute the real page bootstrap and its event handlers against a minimal DOM fixture.
+const template=fs.readFileSync(path.join(__dirname,'order-page.html.in'),'utf8');const ids=[...template.matchAll(/id="([^"]+)"/g)].map(x=>x[1]);
+class Element{constructor(id){this.id=id;this.value='';this.textContent='';this.innerHTML='';this.hidden=false;this.checked=false;this.dataset={};this.events={};this.tagName='DIV';}addEventListener(k,f){this.events[k]=f;}setAttribute(k,v){this[k]=v;}querySelectorAll(){return [];}focus(){}select(){}showModal(){this.open=true;}close(){this.open=false;}}
+const elements=Object.fromEntries(ids.map(id=>[id,new Element(id)]));elements['catalog-data'].textContent=JSON.stringify(data);elements['initial-state'].textContent='null';
+const browserStorage=new Map(),ctx=vm.createContext({document:{getElementById:id=>elements[id],documentElement:{}},window:{},URL,crypto:globalThis.crypto,structuredClone,Blob,console,setTimeout:()=>0,clearTimeout(){},localStorage:{getItem:k=>browserStorage.get(k)||null,setItem:(k,v)=>browserStorage.set(k,v)},navigator:{},confirm:()=>false});
+vm.runInContext(fs.readFileSync(path.join(__dirname,'order-core.js'),'utf8'),ctx);ctx.CasaOrder=ctx.window.CasaOrder;vm.runInContext(fs.readFileSync(path.join(__dirname,'order-page.js'),'utf8'),ctx);
+assert(elements['catalog-grid'].innerHTML.includes(mouse.name_en));assert.equal((elements['catalog-grid'].innerHTML.match(/class="product-card /g)||[]).length,ps.length);
+elements['language'].events.change({target:{value:'en'}});assert.equal(elements['page-title'].textContent,'A collection becomes an order.');
+elements['catalog-grid'].events.click({target:{closest:()=>({dataset:{action:'add',pid:mouse.id}})}});
+elements['catalog-grid'].events.change({target:{dataset:{status:mouse.id},value:'approved'}});assert(elements['supplier-orders'].innerHTML.includes(mouse.name_en));
+elements['catalog-grid'].events.click({target:{closest:()=>({dataset:{action:'hide',pid:mouse.id}})}});assert(!elements['supplier-orders'].innerHTML.includes(mouse.name_en));
+elements['search'].value='no matching product xyz';elements['search'].events.input();assert.equal(elements['catalog-empty'].hidden,false);
+assert.equal(elements['storage-warning'].hidden,true);
+assert(C.promotion(find('Log Puzzle'))==='sale');assert(C.promotion(find('Coconut Salt Scrub'))==='unmarked');assert(C.promotion(find('Bodysuit 56888'))==='unknown');
+elements['search'].value='';elements['price-filter'].value='sale';elements['price-filter'].events.change();
+assert(!elements['catalog-grid'].innerHTML.includes('Cotton Mesh Shopping Bag'));
+elements['price-filter'].value='';elements['platform-filter'].value='SHEIN';elements['platform-filter'].events.change();assert.equal((elements['catalog-grid'].innerHTML.match(/class="product-card /g)||[]).length,6);
+elements['price-filter'].value='unmarked';elements['price-filter'].events.change();assert.equal((elements['catalog-grid'].innerHTML.match(/class="product-card /g)||[]).length,6);
+elements['platform-filter'].value='';elements['price-filter'].value='';elements['sort-order'].value='discount';elements['sort-order'].events.change();assert(C.sortProducts(ps,'discount')[0].price!==null);
+assert(en.includes('Our employee will request the invoice directly'));assert(th.includes('ใบกำกับภาษี'));
+const shein=ps.filter(p=>p.platform==='SHEIN'),sheinWork=C.defaultState();for(const p of shein.slice(0,3)){let row=C.addLine(sheinWork,p);row.model='sample exact SKU';C.setStatus(sheinWork,p,'approved');}assert.equal(C.group(sheinWork,shein).length,3,'Unverified marketplace sellers are not merged into one supplier');
+console.log(JSON.stringify({core:'passed',persistenceRounds:rounds,englishThaiMessages:'passed',sourceGrouping:'passed',unitPriceReset:'passed',invalidImport:'rejected',bootstrapAndDecisionEvents:'passed',categories:new Set(ps.map(p=>p.category)).size,products:ps.length},null,2));
