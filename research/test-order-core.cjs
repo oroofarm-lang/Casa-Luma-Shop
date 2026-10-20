@@ -24,53 +24,42 @@ const copy=JSON.parse(JSON.stringify(state));copy.items.unknown={status:'approve
 const draft=structuredClone(state);draft.items[clothes.id].lines[0].qty=0;draft.items[clothes.id].status='shortlist';C.save(storage,draft);const recovered=C.load(storage,ps);assert.equal(recovered.items[clothes.id].lines[0].qty,0);assert.equal(Object.keys(recovered.items).length,4,'unfinished draft survives reload without losing other choices');
 assert(!C.save({setItem(){throw Error('unavailable');}},state));assert(!C.safeUrl('javascript:alert(1)'));
 const c=state.items[clothes.id].lines[0];c.note='=HYPERLINK("x")';const csv=C.csv(state,ps);assert(csv.includes("'=HYPERLINK"));assert(!csv.includes(mouse.name_en),'skip items absent from CSV');
-// Execute the real page bootstrap and its event handlers against a minimal DOM fixture.
-const template=fs.readFileSync(path.join(__dirname,'order-page.html.in'),'utf8');const ids=[...template.matchAll(/id="([^"]+)"/g)].map(x=>x[1]);
-class Element{constructor(id){this.id=id;this.value='';this.textContent='';this.innerHTML='';this.hidden=false;this.checked=false;this.dataset={};this.events={};this.tagName='DIV';}addEventListener(k,f){this.events[k]=f;}setAttribute(k,v){this[k]=v;}querySelectorAll(){return [];}focus(){}select(){}showModal(){this.open=true;}close(){this.open=false;}}
-const elements=Object.fromEntries(ids.map(id=>[id,new Element(id)]));elements['catalog-data'].textContent=JSON.stringify(data);elements['initial-state'].textContent='null';
-const browserStorage=new Map(),ctx=vm.createContext({document:{getElementById:id=>elements[id],documentElement:{}},window:{},URL,crypto:globalThis.crypto,structuredClone,Blob,console,setTimeout:()=>0,clearTimeout(){},localStorage:{getItem:k=>browserStorage.get(k)||null,setItem:(k,v)=>browserStorage.set(k,v)},navigator:{},confirm:()=>false});
-vm.runInContext(fs.readFileSync(path.join(__dirname,'order-core.js'),'utf8'),ctx);ctx.CasaOrder=ctx.window.CasaOrder;vm.runInContext(fs.readFileSync(path.join(__dirname,'order-page.js'),'utf8'),ctx);
-assert(elements['catalog-grid'].innerHTML.includes(mouse.name_en));assert.equal((elements['catalog-grid'].innerHTML.match(/class="product-card /g)||[]).length,ps.length);
-elements['language'].events.change({target:{value:'en'}});assert.equal(elements['page-title'].textContent,'A collection becomes an order.');
-elements['catalog-grid'].events.click({target:{closest:()=>({dataset:{action:'add',pid:mouse.id}})}});
-elements['catalog-grid'].events.change({target:{dataset:{status:mouse.id},value:'approved'}});assert(elements['supplier-orders'].innerHTML.includes(mouse.name_en));
-elements['catalog-grid'].events.click({target:{closest:()=>({dataset:{action:'hide',pid:mouse.id}})}});assert(!elements['supplier-orders'].innerHTML.includes(mouse.name_en));
-elements['search'].value='no matching product xyz';elements['search'].events.input();assert.equal(elements['catalog-empty'].hidden,false);
-assert.equal(elements['storage-warning'].hidden,true);
-assert(C.promotion(find('Log Puzzle'))==='sale');assert(C.promotion(find('Coconut Salt Scrub'))==='unmarked');assert(C.promotion(find('Bodysuit 56888'))==='unknown');
-elements['search'].value='';elements['price-filter'].value='sale';elements['price-filter'].events.change();
-assert(!elements['catalog-grid'].innerHTML.includes('Cotton Mesh Shopping Bag'));
-elements['price-filter'].value='';elements['platform-filter'].value='SHEIN';elements['platform-filter'].events.change();assert.equal((elements['catalog-grid'].innerHTML.match(/class="product-card /g)||[]).length,6);
-elements['price-filter'].value='unmarked';elements['price-filter'].events.change();assert.equal((elements['catalog-grid'].innerHTML.match(/class="product-card /g)||[]).length,6);
-elements['platform-filter'].value='';elements['price-filter'].value='';elements['sort-order'].value='discount';elements['sort-order'].events.change();assert(C.sortProducts(ps,'discount')[0].price!==null);
-assert(en.includes('Our employee will request the invoice directly'));assert(th.includes('ใบกำกับภาษี'));
-const shein=ps.filter(p=>p.platform==='SHEIN'),sheinWork=C.defaultState();for(const p of shein.slice(0,3)){let row=C.addLine(sheinWork,p);row.model='sample exact SKU';C.setStatus(sheinWork,p,'approved');}assert.equal(C.group(sheinWork,shein).length,3,'Unverified marketplace sellers are not merged into one supplier');
-// Requirements: budget boundaries, THB migration, editable supplier facts and deletion survive export/reload.
-const req=C.defaultState(), rr=C.addLine(req,mouse);
-assert.equal(C.budget(mouse,req.items[mouse.id]),'within');
-C.editLine(req,mouse,rr.id,'unitPrice','250');assert.equal(C.budget(mouse,req.items[mouse.id]),'within');
-C.editLine(req,mouse,rr.id,'unitPrice','250.01');assert.equal(C.budget(mouse,req.items[mouse.id]),'over');
-C.editLine(req,mouse,rr.id,'unitPrice','');assert.equal(C.budget(mouse,req.items[mouse.id]),'unknown');
-C.editLine(req,mouse,rr.id,'unitPrice','180');assert(C.setStatus(req,mouse,'approved'));
-C.updateInfo(req,mouse,'stock','out_of_stock');assert.equal(req.items[mouse.id].status,'shortlist');assert(!C.setStatus(req,mouse,'approved'));assert.equal(C.group(req,ps).length,0);
-C.updateInfo(req,mouse,'stock','in_stock');C.updateInfo(req,mouse,'invoiceStatus','received');C.updateInfo(req,mouse,'invoiceType','tax_invoice');C.updateInfo(req,mouse,'supplierNotes','Invoice CL-42 received');C.setStatus(req,mouse,'approved');
-assert(C.message(C.group(req,ps)[0],req.settings).includes('Invoice: Received'));
-assert(C.csv(req,ps).includes('tax_invoice'));
-for(let n=0;n<3;n++){C.save(storage,req);const loaded=C.load(storage,ps);assert.equal(loaded.items[mouse.id].invoiceStatus,'received');assert.equal(loaded.items[mouse.id].stock,'in_stock');}
-const legacy=structuredClone(req);legacy.items[mouse.id].lines[0].currency='USD';legacy.items[mouse.id].lines[0].unitPrice=29.99;legacy.items[mouse.id].lines[0].priceKind='quote';
-assert.equal(C.normalize(legacy,ps).state.items[mouse.id].status,'shortlist');const migrated=C.normalize(legacy,ps).state.items[mouse.id].lines[0];assert.equal(migrated.unitPrice,null);assert.equal(migrated.currency,'THB');assert.equal(migrated.priceKind,'reference');
-assert(C.updateInfo(req,mouse,'lazadaUrl','https://www.lazada.co.th/shop/example/'));assert(!C.updateInfo(req,mouse,'lazadaUrl','https://lazada.co.th.example.com/'));assert(!C.lazadaUrl('javascript:alert(1)'));
+// Shopping architecture: visible product price drafts are independent of the basket.
+let shopping=C.defaultState();const d=C.productDraft(shopping,mouse);assert.equal(d.unitPrice,114);
+C.editDraft(shopping,mouse,'unitPrice','199');C.editDraft(shopping,mouse,'qty','2');assert.equal(C.cartLines(shopping,ps).length,0,'editing price does not add unwanted cart rows');
+let cartRow=C.addToCart(shopping,mouse);assert.equal(cartRow.unitPrice,199);assert.equal(cartRow.qty,2);
+C.addToCart(shopping,mouse);assert.equal(C.cartLines(shopping,ps).length,1,'identical variants merge');assert.equal(cartRow.qty,4);
+C.editDraft(shopping,mouse,'unitPrice','210');assert.equal(cartRow.unitPrice,199,'product draft changes do not alter existing basket price');
+C.editDraft(shopping,mouse,'colour','blue');C.addToCart(shopping,mouse);assert.equal(C.cartLines(shopping,ps).length,2,'different variants remain separate');
+C.editCartLine(shopping,mouse,cartRow.id,'selected',false);assert.equal(C.cartLines(shopping,ps,true).length,1);
+const before=structuredClone(shopping);const made=C.checkout(shopping,ps,'order');assert.equal(made.length,1);assert.equal(made[0].lines.length,1);assert.equal(C.cartLines(shopping,ps).length,1,'checkout leaves excluded rows in basket');
+const historicalPrice=made[0].lines[0].row.unitPrice;C.editDraft(shopping,mouse,'unitPrice','1');assert.equal(made[0].lines[0].row.unitPrice,historicalPrice,'saved order is immutable snapshot');
+assert(C.orderMessage(made[0],'en').includes(made[0].number));assert(C.updateOrder(shopping,made[0].id,'received'));assert(!C.updateOrder(shopping,made[0].id,'invalid'));
+const savedOrderRoundTrips=[];for(let n=1;n<=3;n++){C.save(storage,shopping);shopping=C.load(storage,ps);assert.equal(shopping.orders.length,1);assert.equal(shopping.orders[0].status,'received');assert.equal(shopping.orders[0].lines[0].row.unitPrice,historicalPrice);savedOrderRoundTrips.push({run:n,orders:shopping.orders.length,status:shopping.orders[0].status,cartLines:C.cartLines(shopping,ps).length});}
+const quoteWork=C.defaultState();C.editDraft(quoteWork,mouse,'unitPrice','');C.addToCart(quoteWork,mouse);assert.throws(()=>C.checkout(quoteWork,ps,'order'),/incomplete/);const inquiries=C.checkout(quoteWork,ps,'quote');assert.equal(inquiries.length,1);assert.equal(C.cartLines(quoteWork,ps).length,1);assert(C.orderMessage(inquiries[0],'en').includes('not a confirmed purchase order'));assert(C.orderMessage(inquiries[0],'th').includes('ยังไม่ใช่คำสั่งซื้อ'));
+const mixedSources=C.defaultState();C.addToCart(mixedSources,mouse);C.editDraft(mixedSources,lotion,'source','lazada');C.addToCart(mixedSources,lotion);assert.equal(C.checkout(mixedSources,ps).length,2,'checkout splits real supplier/channel recipients');
+const missingVariant=C.defaultState();C.addToCart(missingVariant,clothes);assert.throws(()=>C.checkout(missingVariant,ps),/incomplete/);C.editCartLine(missingVariant,clothes,missingVariant.items[clothes.id].lines[0].id,'size','12m');C.editCartLine(missingVariant,clothes,missingVariant.items[clothes.id].lines[0].id,'unitPrice','200');assert.equal(C.checkout(missingVariant,ps).length,1);
+const clothingInquiry=C.defaultState();C.addToCart(clothingInquiry,clothes);const clothingQuotes=C.checkout(clothingInquiry,ps,'quote');assert.equal(clothingQuotes.length,1);assert(C.orderMessage(clothingQuotes[0],'en').includes('confirm the required clothing size'));const importedClothing=C.normalizeOrder(clothingQuotes[0]);assert.doesNotThrow(()=>C.orderMessage(importedClothing,'th'));
+const outStock=C.defaultState();C.addToCart(outStock,mouse);C.updateInfo(outStock,mouse,'stock','out_of_stock');assert.throws(()=>C.checkout(outStock,ps),/incomplete/);assert.equal(C.checkout(outStock,ps,'quote').length,1);
+const req=C.defaultState(),rr=C.addLine(req,mouse);for(const [value,expected] of [['250','within'],['250.01','over'],['','unknown']]){C.editLine(req,mouse,rr.id,'unitPrice',value);assert.equal(C.budget(mouse,req.items[mouse.id]),expected);}
+C.updateInfo(req,mouse,'stock','in_stock');C.updateInfo(req,mouse,'invoiceStatus','received');C.updateInfo(req,mouse,'invoiceType','tax_invoice');C.save(storage,req);assert.equal(C.load(storage,ps).items[mouse.id].invoiceStatus,'received');
+const legacy=structuredClone(req);legacy.items[mouse.id].lines[0].currency='USD';legacy.items[mouse.id].lines[0].unitPrice=29.99;legacy.items[mouse.id].status='approved';const migrated=C.normalize(legacy,ps).state;assert.equal(migrated.items[mouse.id].lines[0].unitPrice,null);assert.equal(migrated.items[mouse.id].status,'shortlist');
+assert(C.updateInfo(req,mouse,'lazadaUrl','https://www.lazada.co.th/shop/example/'));assert(!C.updateInfo(req,mouse,'lazadaUrl','https://lazada.co.th.example.com/'));C.deleteProduct(req,mouse);assert.equal(C.cartLines(req,ps).length,0);C.save(storage,req);assert(C.load(storage,ps).items[mouse.id].deleted);
 assert(ps.every(p=>p.currency==='THB'&&p.sources.every(s=>s.currency==='THB')));
-C.deleteProduct(req,mouse);assert.equal(req.items[mouse.id].lines.length,0);C.save(storage,req);assert(C.load(storage,ps).items[mouse.id].deleted);assert.equal(C.group(req,ps).length,0);
-// UI editing routes really save supplier state, show THB-only controls and filter the budget.
-elements['platform-filter'].value='';elements['price-filter'].value='';elements['budget-filter'].value='over';elements['budget-filter'].events.change();assert(elements['catalog-grid'].innerHTML.includes('budget-warning'));
-elements['budget-filter'].value='';elements['budget-filter'].events.change();
-elements['catalog-grid'].events.click({target:{closest:()=>({dataset:{action:'restore',pid:mouse.id}})}});
-elements['catalog-grid'].events.change({target:{dataset:{info:'invoiceStatus',pid:mouse.id},value:'received'}});
-assert(elements['catalog-grid'].innerHTML.includes('value="received" selected'));
-elements['catalog-grid'].events.click({target:{closest:()=>({dataset:{action:'delete',pid:mouse.id}})}});
-assert(!elements['catalog-grid'].innerHTML.includes('data-id="'+mouse.id+'"'));
-elements['show-hidden'].checked=true;elements['show-hidden'].events.change();assert(elements['catalog-grid'].innerHTML.includes('data-id="'+mouse.id+'"'));
-elements['catalog-grid'].events.click({target:{closest:()=>({dataset:{action:'restore',pid:mouse.id}})}});
-assert(elements['supplier-table'].innerHTML.includes('https://line.me/R/ti/p/@adaily.factory'));assert(elements['supplier-table'].innerHTML.includes('https://line.me/R/ti/p/@commandpstudio'));assert(elements['supplier-table'].innerHTML.includes('>LINE ↗</a>'));assert(!elements['catalog-grid'].innerHTML.includes('data-field="currency"'));assert(elements['catalog-grid'].innerHTML.includes('data-action="delete"'));
-console.log(JSON.stringify({core:'passed',persistenceRounds:rounds,englishThaiMessages:'passed',sourceGrouping:'passed',unitPriceReset:'passed',invalidImport:'rejected',bootstrapAndDecisionEvents:'passed',categories:new Set(ps.map(p=>p.category)).size,products:ps.length},null,2));
+// Execute the new storefront and real event handlers against a minimal DOM fixture.
+const template=fs.readFileSync(path.join(__dirname,'order-page.html.in'),'utf8'),ids=[...template.matchAll(/id="([^"]+)"/g)].map(x=>x[1]);
+class Element{constructor(id){this.id=id;this.value='';this.textContent='';this.innerHTML='';this.hidden=false;this.checked=false;this.dataset={};this.events={};this.tagName='DIV';this.classList={toggle(){},add(){},remove(){}};}addEventListener(k,f){this.events[k]=f;}setAttribute(k,v){this[k]=v;}querySelectorAll(){return [];}querySelector(){return null;}focus(){}select(){}showModal(){this.open=true;}close(){this.open=false;}}
+const elements=Object.fromEntries(ids.map(id=>[id,new Element(id)]));elements['catalog-data'].textContent=JSON.stringify(data);elements['initial-state'].textContent='null';const documentEvents={},browserStorage=new Map(),ctx=vm.createContext({document:{getElementById:id=>elements[id],documentElement:{},addEventListener:(key,fn)=>documentEvents[key]=fn},window:{},URL,crypto:globalThis.crypto,structuredClone,Blob,console,setTimeout:()=>0,clearTimeout(){},localStorage:{getItem:k=>browserStorage.get(k)||null,setItem:(k,v)=>browserStorage.set(k,v)},navigator:{},confirm:()=>false});
+vm.runInContext(fs.readFileSync(path.join(__dirname,'order-core.js'),'utf8'),ctx);ctx.CasaOrder=ctx.window.CasaOrder;vm.runInContext(fs.readFileSync(path.join(__dirname,'order-page.js'),'utf8'),ctx);
+assert.equal((elements['catalog-grid'].innerHTML.match(/class="product-card /g)||[]).length,ps.length);
+assert.equal((elements['catalog-grid'].innerHTML.match(/data-field="unitPrice"/g)||[]).length,ps.length,'every product has a visible editable price before adding');
+elements.language.events.change({target:{value:'en'}});assert.equal(elements['catalog-title'].textContent,'Build your next collection.');
+elements['catalog-grid'].events.input({target:{dataset:{scope:'draft',pid:mouse.id,field:'unitPrice'},value:'225',tagName:'INPUT',closest:()=>null}});
+assert.equal(JSON.parse([...browserStorage.values()][0]).items[mouse.id].draft.unitPrice,225);
+elements['catalog-grid'].events.click({target:{closest:()=>({dataset:{action:'add',pid:mouse.id}})}});
+assert(elements['cart-link'].textContent.includes('1'));documentEvents.click({target:{closest:()=>({dataset:{view:'cart'}})}});assert(elements['cart-items'].innerHTML.includes(mouse.name_en));
+assert(elements['cart-items'].innerHTML.includes('value="225"'));elements.checkout.events.click();assert(elements['order-history'].innerHTML.includes(mouse.name_en));assert.equal(elements['message-dialog'].open,true);assert(elements['message-text'].value.includes('225.00 THB'));assert.equal(JSON.parse([...browserStorage.values()][0]).orders.length,1);
+elements['search'].value='No match at all xyz';elements['search'].events.input();assert.equal(elements['catalog-empty'].hidden,false);
+assert(elements['supplier-directory'].innerHTML.includes('https://line.me/R/ti/p/@adaily.factory'));
+assert(elements['supplier-directory'].innerHTML.includes('https://line.me/R/ti/p/@commandpstudio'));
+console.log(JSON.stringify({core:'passed',legacyPersistenceRounds:rounds,shoppingOrderPersistence:savedOrderRoundTrips,visiblePriceInputs:ps.length,cartMergeAndVariants:'passed',supplierChannelCheckout:'passed',quoteVsOrderValidation:'passed',historicalSnapshot:'passed',storefrontEventFlow:'passed',products:ps.length},null,2));

@@ -10,3 +10,5 @@ A Markdown knowledge vault; open this folder in any Markdown editor or Obsidian.
 - [Backup and publishing](Backup-and-Publishing.md)
 
 - [Purchasing requirements — 20 October 2026](Requirements-2026-10-20.md)
+
+- [Storefront and cart architecture](Internal-Shop-Architecture.md)

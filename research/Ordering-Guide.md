@@ -67,3 +67,21 @@ Under **Orders by supplier**, select English or Thai, review the message, then c
 ### Employee update guide
 
 All order prices and totals are THB. Use the budget filter; an order unit above 250 THB is highlighted, while missing prices need a THB quote. Enter a manual unit price after checking with the supplier. Open the stock/invoice panel on the product card and update availability, invoice status, invoice type and supplier notes. Out-of-stock items cannot be approved. Export a work file to return changes to the owner; browser updates are not shared live. Delete removes the local order lines; restore returns the product for review without restoring deleted lines. A Lazada search link is explicitly unverified. Team-entered Lazada links are not independently verified.
+
+## חנות וסל — 20.10.2026
+
+זהו המסלול החדש, שמחליף את מסלול ״מועמד / מאושר״ של הממשק הקודם:
+
+1. בכל כרטיס מופיע **המחיר שלך ליחידה · באט**. אפשר להזין ולשנות אותו לפני הוספה. מחיר המקור שנצפה מוצג בנפרד. ממלאים כמות, מידה/צבע ובמידת הצורך פותחים דגם ומארז לבחירת ספק, יחידת הזמנה, דגם/טעם, תכולת מארז והערה.
+2. לוחצים **הוסף לסל**. אותו דגם, ספק ומחיר מתאחדים לכמות אחת; דגם או מחיר אחר יוצרים שורה נפרדת. עריכת מחיר בכרטיס אינה משנה שורה שכבר הוספת לסל — את שורת הסל עורכים בסל עצמו.
+3. בסל עורכים כמות, מחיר, מידה, דגם, צבע, מארז, מקור, סוג מחיר והערה. מסמנים את השורות שייכללו בפעולה הבאה. ניתן לקבץ לפי ספק, ערוץ, קטגוריה, מבצע, מלאי וחשבונית, ולסנן מחיר חסר, חריגה או פרטים חסרים.
+4. ממלאים פרטי קונה, כתובת, איש קשר, תאריך, אופן מסירה, סוג מסמך ואסמכתא פנימית. הובלה ומסים שלא אושרו אינם נכללים בסכום.
+5. **הכן הזמנות לספקים** יוצר טיוטות שמורות נפרדות לפי ספק וערוץ ומעביר את השורות שסומנו מהסל להיסטוריה. פעולה זו דורשת מחיר ופרטי דגם תקינים; לבגדים נדרשת מידה. **הכן בקשת מחיר וזמינות** מתאים למחיר/דגם שטרם אושרו ומשאיר את המוצרים בסל.
+6. ב״ההזמנות שלנו״ בוחרים English / ภาษาไทย, פותחים את הודעת הספק ומעתיקים/מורידים. ניתן לסנן לפי ספק, ערוץ, קטגוריה וסטטוס ולמיין לפי תאריך או סכום. סטטוסים כמו נשלח או הוזמן הם דיווח ידני של העובד; הכלי אינו שולח או רוכש בעצמו.
+7. נתוני הזמנה שנשמרה הם צילום מצב: שינוי סל או מחיר אחר כך אינו משנה אותם. ״הוסף שוב לסל״ משמש להזמנה חוזרת עם מחירי ייחוס לבדיקה מחודשת.
+
+המידע על מלאי וחשבונית נגיש בפתיחת **פרטי מוצר וספק** דרך שם/תמונת המוצר. הסל, פרטי הקונה והיסטוריית ההזמנות נשמרים מקומית ומועברים בקובץ עבודה או בדף העובד. דף העובד כולל אנגלית והזמנות שמורות. עדיין אין סנכרון חי או כניסה מאומתת; הקטלוג הציבורי לא הופך למערכת פרטית בגלל עיצוב החנות.
+
+### Employee shopping flow
+
+Set **Your unit price · THB** on the product card, select quantity and exact variants, then **Add to cart**. Review and edit the cart; only checked rows are processed. **Prepare supplier orders** saves separate immutable drafts per supplier/channel and moves those rows to order history. **Request prices / availability** is an inquiry and keeps the cart rows. Copy English/Thai messages manually. Track statuses only after acting. Save/export the workspace to hand changes back to the owner; this is not live shared storage.
