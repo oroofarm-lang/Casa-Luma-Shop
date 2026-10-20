@@ -1402,14 +1402,14 @@
       "name": "פאוץ׳ כותנה אתני 10×14 ס״מ",
       "supplier": "Handbag Asia / Prestige Creations",
       "url": "https://handbag-asia.com/product/ethnic-cotton-bags/",
-      "price": 2,
+      "price": null,
       "regular": null,
-      "currency": "USD",
-      "evidence": "מחיר $2 נצפה בדף היצרן החי",
+      "currency": "THB",
+      "evidence": "יש לבקש מחיר בבאט; מחיר המקור במטבע זר הושמט ללא המרה.",
       "quality": "לפי היצרן 100% כותנה; ייצור בתאילנד. לבדוק תפירה, צבע ותחושה בדגימה.",
       "shipping": "לא אושר ל־84280",
       "decision": "עדיפות להצעת מחיר ודגימה",
-      "note": "מחיר אתר בלבד; MOQ, מחיר למשלוח מקומי, מס והדפסה לא אושרו. לא הומר לבאט.",
+      "note": "יש לבקש מחיר ספק בבאט תאילנדי; לא בוצעה המרת מטבע.",
       "checked": "18.10.2026",
       "primary_name": "Handbag Asia / Prestige Creations",
       "primary_url": "https://handbag-asia.com/",
@@ -1421,7 +1421,7 @@
       "lazada_offer": null,
       "image_note": "סמל קטגוריה בלבד — צילום מוצר לא אותר",
       "name_en": "Ethnic Cotton Pouch 10 × 14 cm",
-      "summary_en": "USD 2 website price. Confirm MOQ, local tax, shipping, print and fabric sample.",
+      "summary_en": "Request a supplier quotation in THB. No currency conversion has been applied.",
       "sku": "",
       "options_hint": "",
       "kind": "product",
@@ -1441,8 +1441,8 @@
           "channel": "brand / manufacturer",
           "url": "https://handbag-asia.com/product/ethnic-cotton-bags/",
           "store": "https://handbag-asia.com/",
-          "price": 2,
-          "currency": "USD",
+          "price": null,
+          "currency": "THB",
           "contact": "https://handbag-asia.com/index.php/contact-us/"
         }
       ]
@@ -1702,14 +1702,14 @@
       "name": "סט 4 קשיות זכוכית",
       "supplier": "SuperBee",
       "url": "https://superbee.me/s/glass-drinking-straws/",
-      "price": 13.99,
+      "price": null,
       "regular": null,
-      "currency": "USD",
-      "evidence": "מחיר נצפה בקטגוריית Kitchen באתר החי",
+      "currency": "THB",
+      "evidence": "יש לבקש מחיר בבאט; מחיר המקור במטבע זר הושמט ללא המרה.",
       "quality": "מותג תאילנדי מזוהה; באתר הצהרות B Corp וכותנה GOTS במוצרי הבד. לא אישור לכל מק״ט.",
       "shipping": "לא אושר ל־84280",
       "decision": "מחיר סוחר מקומי נדרש",
-      "note": "מחיר יצוא בדולר, לא מחיר מקומי סיטונאי; מתנה למבוגרים, לא מוצר מועדף לשימוש ילדים.",
+      "note": "יש לבקש מחיר ספק בבאט תאילנדי; לא בוצעה המרת מטבע.",
       "checked": "18.10.2026",
       "primary_name": "SuperBee",
       "primary_url": "https://superbee.me/wholesale/",
@@ -1725,7 +1725,7 @@
       "lazada_offer": null,
       "image_note": "תמונת קטלוג הספק; יש לאשר צבע/אריזה/וריאנט",
       "name_en": "Glass Drinking Straws — set of 4",
-      "summary_en": "USD export price. Gift for adults; not recommended as a child-use item.",
+      "summary_en": "Request a supplier quotation in THB. No currency conversion has been applied.",
       "sku": "",
       "options_hint": "",
       "kind": "product",
@@ -1745,8 +1745,8 @@
           "channel": "brand / manufacturer",
           "url": "https://superbee.me/s/glass-drinking-straws/",
           "store": "https://superbee.me/wholesale/",
-          "price": 13.99,
-          "currency": "USD",
+          "price": null,
+          "currency": "THB",
           "contact": "https://shop.line.me/@superbeewaxwraps"
         }
       ]
@@ -1756,14 +1756,14 @@
       "name": "תיק כותנה Patchwork Tote",
       "supplier": "SuperBee",
       "url": "https://superbee.me/s/patchwork-tote-bag/",
-      "price": 29.99,
+      "price": null,
       "regular": null,
-      "currency": "USD",
-      "evidence": "מחיר נצפה בקטגוריית Kitchen באתר החי",
+      "currency": "THB",
+      "evidence": "יש לבקש מחיר בבאט; מחיר המקור במטבע זר הושמט ללא המרה.",
       "quality": "מותג תאילנדי מזוהה; באתר הצהרות B Corp וכותנה GOTS במוצרי הבד. לא אישור לכל מק״ט.",
       "shipping": "לא אושר ל־84280",
       "decision": "מחיר סוחר מקומי נדרש",
-      "note": "מתאים ללוק הטבעי; לבקש מחיר סוחר בבאט.",
+      "note": "יש לבקש מחיר ספק בבאט תאילנדי; לא בוצעה המרת מטבע.",
       "checked": "18.10.2026",
       "primary_name": "SuperBee",
       "primary_url": "https://superbee.me/wholesale/",
@@ -1779,7 +1779,7 @@
       "lazada_offer": null,
       "image_note": "תמונת קטלוג הספק; יש לאשר צבע/אריזה/וריאנט",
       "name_en": "Patchwork Cotton Tote",
-      "summary_en": "USD export price; request local THB wholesale quote.",
+      "summary_en": "Request a supplier quotation in THB. No currency conversion has been applied.",
       "sku": "",
       "options_hint": "",
       "kind": "product",
@@ -1799,8 +1799,8 @@
           "channel": "brand / manufacturer",
           "url": "https://superbee.me/s/patchwork-tote-bag/",
           "store": "https://superbee.me/wholesale/",
-          "price": 29.99,
-          "currency": "USD",
+          "price": null,
+          "currency": "THB",
           "contact": "https://shop.line.me/@superbeewaxwraps"
         }
       ]
@@ -1810,14 +1810,14 @@
       "name": "סט 5 שקיות רשת לתוצרת",
       "supplier": "SuperBee",
       "url": "https://superbee.me/s/5-mesh-produce-bags/",
-      "price": 22.99,
+      "price": null,
       "regular": null,
-      "currency": "USD",
-      "evidence": "מחיר נצפה בקטגוריית Kitchen באתר החי",
+      "currency": "THB",
+      "evidence": "יש לבקש מחיר בבאט; מחיר המקור במטבע זר הושמט ללא המרה.",
       "quality": "מותג תאילנדי מזוהה; באתר הצהרות B Corp וכותנה GOTS במוצרי הבד. לא אישור לכל מק״ט.",
       "shipping": "לא אושר ל־84280",
       "decision": "מחיר סוחר מקומי נדרש",
-      "note": "המחיר לסט, לא ליחידה; לבדוק אריזת מדף.",
+      "note": "יש לבקש מחיר ספק בבאט תאילנדי; לא בוצעה המרת מטבע.",
       "checked": "18.10.2026",
       "primary_name": "SuperBee",
       "primary_url": "https://superbee.me/wholesale/",
@@ -1833,7 +1833,7 @@
       "lazada_offer": null,
       "image_note": "תמונת קטלוג הספק; יש לאשר צבע/אריזה/וריאנט",
       "name_en": "Mesh Produce Bags — set of 5",
-      "summary_en": "Price is per set, not per bag. Confirm retail packaging.",
+      "summary_en": "Request a supplier quotation in THB. No currency conversion has been applied.",
       "sku": "",
       "options_hint": "",
       "kind": "product",
@@ -1853,8 +1853,8 @@
           "channel": "brand / manufacturer",
           "url": "https://superbee.me/s/5-mesh-produce-bags/",
           "store": "https://superbee.me/wholesale/",
-          "price": 22.99,
-          "currency": "USD",
+          "price": null,
+          "currency": "THB",
           "contact": "https://shop.line.me/@superbeewaxwraps"
         }
       ]
@@ -1864,14 +1864,14 @@
       "name": "לופה לניקוי כלים",
       "supplier": "SuperBee",
       "url": "https://superbee.me/s/natural-dish-scrubber/",
-      "price": 15.99,
+      "price": null,
       "regular": null,
-      "currency": "USD",
-      "evidence": "מחיר נצפה בקטגוריית Kitchen באתר החי",
+      "currency": "THB",
+      "evidence": "יש לבקש מחיר בבאט; מחיר המקור במטבע זר הושמט ללא המרה.",
       "quality": "מותג תאילנדי מזוהה; באתר הצהרות B Corp וכותנה GOTS במוצרי הבד. לא אישור לכל מק״ט.",
       "shipping": "לא אושר ל־84280",
       "decision": "מחיר סוחר מקומי נדרש",
-      "note": "מחיר החל מ־15.99 דולר, קיימות אריזות 2/10. אין לחשב ליחידה ללא בחירת אריזה.",
+      "note": "יש לבקש מחיר ספק בבאט תאילנדי; לא בוצעה המרת מטבע.",
       "checked": "18.10.2026",
       "primary_name": "SuperBee",
       "primary_url": "https://superbee.me/wholesale/",
@@ -1887,7 +1887,7 @@
       "lazada_offer": null,
       "image_note": "תמונת קטלוג הספק; יש לאשר צבע/אריזה/וריאנט",
       "name_en": "Natural Dish Scrubber — loofah",
-      "summary_en": "Starting price; pack options 2/10. Do not treat as price per piece.",
+      "summary_en": "Request a supplier quotation in THB. No currency conversion has been applied.",
       "sku": "",
       "options_hint": "",
       "kind": "product",
@@ -1907,8 +1907,8 @@
           "channel": "brand / manufacturer",
           "url": "https://superbee.me/s/natural-dish-scrubber/",
           "store": "https://superbee.me/wholesale/",
-          "price": 15.99,
-          "currency": "USD",
+          "price": null,
+          "currency": "THB",
           "contact": "https://shop.line.me/@superbeewaxwraps"
         }
       ]
@@ -1918,14 +1918,14 @@
       "name": "מטליות מטבח רב־פעמיות",
       "supplier": "SuperBee",
       "url": "https://superbee.me/s/reusable-kitchen-cloths/",
-      "price": 49.99,
+      "price": null,
       "regular": null,
-      "currency": "USD",
-      "evidence": "מחיר נצפה בקטגוריית Kitchen באתר החי",
+      "currency": "THB",
+      "evidence": "יש לבקש מחיר בבאט; מחיר המקור במטבע זר הושמט ללא המרה.",
       "quality": "מותג תאילנדי מזוהה; באתר הצהרות B Corp וכותנה GOTS במוצרי הבד. לא אישור לכל מק״ט.",
       "shipping": "לא אושר ל־84280",
       "decision": "מחיר סוחר מקומי נדרש",
-      "note": "מחיר החל מ־49.99 דולר; פחות מתאים לקנייה אימפולסיבית במחיר הציבורי.",
+      "note": "יש לבקש מחיר ספק בבאט תאילנדי; לא בוצעה המרת מטבע.",
       "checked": "18.10.2026",
       "primary_name": "SuperBee",
       "primary_url": "https://superbee.me/wholesale/",
@@ -1941,7 +1941,7 @@
       "lazada_offer": null,
       "image_note": "תמונת קטלוג הספק; יש לאשר צבע/אריזה/וריאנט",
       "name_en": "Reusable Kitchen Cloths",
-      "summary_en": "Starting export price; confirm pack contents and local wholesale terms.",
+      "summary_en": "Request a supplier quotation in THB. No currency conversion has been applied.",
       "sku": "",
       "options_hint": "",
       "kind": "product",
@@ -1961,8 +1961,8 @@
           "channel": "brand / manufacturer",
           "url": "https://superbee.me/s/reusable-kitchen-cloths/",
           "store": "https://superbee.me/wholesale/",
-          "price": 49.99,
-          "currency": "USD",
+          "price": null,
+          "currency": "THB",
           "contact": "https://shop.line.me/@superbeewaxwraps"
         }
       ]
@@ -2807,7 +2807,12 @@
       "primary_url": "https://elegantkids.in.th/",
       "primary_role": "אתר היצרן התאילנדי ומסלול סיטונאות",
       "seller_name": "Elegant Kids",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/elegant-kids/",
+        "evidence": "https://linktr.ee/Elegant_Kids",
+        "status": "מקושר מדף הקישורים של המותג; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the brand link page; SKU stock and price not verified."
+      },
       "image_url": null,
       "image_source": null,
       "lazada_offer": null,
@@ -2819,7 +2824,7 @@
       "kind": "product",
       "id": "cl-29670d2018b9986d",
       "sourcing_warning_en": "Quality and delivery to 84280 require confirmation. Reference price excludes unconfirmed freight/taxes.",
-      "contact_info": "https://elegantkids.in.th/th/pages/about-us",
+      "contact_info": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "promotion_status": "unknown",
@@ -2835,7 +2840,7 @@
           "store": "https://elegantkids.in.th/",
           "price": null,
           "currency": "THB",
-          "contact": "https://elegantkids.in.th/th/pages/about-us"
+          "contact": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000"
         }
       ]
     },
@@ -3258,7 +3263,12 @@
       "primary_url": "https://elegantkids.in.th/",
       "primary_role": "ערוץ המותג; זהות מפעל ותנאי סחר דורשים אישור",
       "seller_name": "Elegant Kids",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/elegant-kids/",
+        "evidence": "https://linktr.ee/Elegant_Kids",
+        "status": "מקושר מדף הקישורים של המותג; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the brand link page; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://cdn.shopify.com/s/files/1/2435/4547/files/56587.jpg?v=1752917930",
       "image_source": "https://elegantkids.in.th/products/2-pcs-set-86",
@@ -3270,7 +3280,7 @@
       "source_url": "https://elegantkids.in.th/products/2-pcs-set-86",
       "id": "cl-5f366bab943ccb78",
       "sourcing_warning_en": "Quality and delivery to 84280 require confirmation. Reference price excludes unconfirmed freight/taxes.",
-      "contact_info": "https://elegantkids.in.th/th/pages/about-us",
+      "contact_info": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "promotion_status": "unknown",
@@ -3285,7 +3295,7 @@
           "store": "https://elegantkids.in.th/",
           "price": 339,
           "currency": "THB",
-          "contact": "https://elegantkids.in.th/th/pages/about-us"
+          "contact": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000"
         }
       ]
     },
@@ -3308,7 +3318,12 @@
       "primary_url": "https://elegantkids.in.th/",
       "primary_role": "ערוץ המותג; זהות מפעל ותנאי סחר דורשים אישור",
       "seller_name": "Elegant Kids",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/elegant-kids/",
+        "evidence": "https://linktr.ee/Elegant_Kids",
+        "status": "מקושר מדף הקישורים של המותג; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the brand link page; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://cdn.shopify.com/s/files/1/2435/4547/files/2_ELCS-56762.jpg?v=1756787229",
       "image_source": "https://elegantkids.in.th/products/2-pcs-set-89",
@@ -3320,7 +3335,7 @@
       "source_url": "https://elegantkids.in.th/products/2-pcs-set-89",
       "id": "cl-79fb2bfa46e03753",
       "sourcing_warning_en": "Quality and delivery to 84280 require confirmation. Reference price excludes unconfirmed freight/taxes.",
-      "contact_info": "https://elegantkids.in.th/th/pages/about-us",
+      "contact_info": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "promotion_status": "unknown",
@@ -3335,7 +3350,7 @@
           "store": "https://elegantkids.in.th/",
           "price": 289,
           "currency": "THB",
-          "contact": "https://elegantkids.in.th/th/pages/about-us"
+          "contact": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000"
         }
       ]
     },
@@ -3358,7 +3373,12 @@
       "primary_url": "https://elegantkids.in.th/",
       "primary_role": "ערוץ המותג; זהות מפעל ותנאי סחר דורשים אישור",
       "seller_name": "Elegant Kids",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/elegant-kids/",
+        "evidence": "https://linktr.ee/Elegant_Kids",
+        "status": "מקושר מדף הקישורים של המותג; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the brand link page; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://cdn.shopify.com/s/files/1/2435/4547/files/9_ELCK-56769.jpg?v=1756794049",
       "image_source": "https://elegantkids.in.th/products/dress-1",
@@ -3370,7 +3390,7 @@
       "source_url": "https://elegantkids.in.th/products/dress-1",
       "id": "cl-f523c31bf98ffda1",
       "sourcing_warning_en": "Quality and delivery to 84280 require confirmation. Reference price excludes unconfirmed freight/taxes.",
-      "contact_info": "https://elegantkids.in.th/th/pages/about-us",
+      "contact_info": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "promotion_status": "unknown",
@@ -3385,7 +3405,7 @@
           "store": "https://elegantkids.in.th/",
           "price": 289,
           "currency": "THB",
-          "contact": "https://elegantkids.in.th/th/pages/about-us"
+          "contact": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000"
         }
       ]
     },
@@ -3408,7 +3428,12 @@
       "primary_url": "https://phutawanshop.com/?lang=en",
       "primary_role": "ערוץ המותג; זהות מפעל ותנאי סחר דורשים אישור",
       "seller_name": "Phutawan",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/phutawan-shop/",
+        "evidence": "https://phutawanshop.com/en/store-branch/",
+        "status": "מקושר מדף החנויות של היצרן; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the manufacturer store directory; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://phutawanshop.com/wp-content/uploads/2026/03/Coconut-Lip-Balm-White-BG_Coconut_BoxTube-680x680.jpg",
       "image_source": "https://phutawanshop.com/en/product-category/coconut-series/",
@@ -3420,7 +3445,7 @@
       "source_url": "https://phutawanshop.com/en/product-category/coconut-series/",
       "id": "cl-7b63af04e14f60f8",
       "sourcing_warning_en": "Quality and delivery to 84280 require confirmation. Reference price excludes unconfirmed freight/taxes.",
-      "contact_info": "https://www.instagram.com/phutawan_official/",
+      "contact_info": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "promotion_status": "unknown",
@@ -3435,7 +3460,7 @@
           "store": "https://phutawanshop.com/?lang=en",
           "price": 120,
           "currency": "THB",
-          "contact": "https://www.instagram.com/phutawan_official/"
+          "contact": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7"
         }
       ]
     },
@@ -3458,7 +3483,12 @@
       "primary_url": "https://phutawanshop.com/?lang=en",
       "primary_role": "ערוץ המותג; זהות מפעל ותנאי סחר דורשים אישור",
       "seller_name": "Phutawan",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/phutawan-shop/",
+        "evidence": "https://phutawanshop.com/en/store-branch/",
+        "status": "מקושר מדף החנויות של היצרן; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the manufacturer store directory; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://phutawanshop.com/wp-content/uploads/2022/08/CoconutSoap-Original-front-680x680.jpg",
       "image_source": "https://phutawanshop.com/en/product-category/coconut-series/",
@@ -3470,7 +3500,7 @@
       "source_url": "https://phutawanshop.com/en/product-category/coconut-series/",
       "id": "cl-1166638fe0adef13",
       "sourcing_warning_en": "Quality and delivery to 84280 require confirmation. Reference price excludes unconfirmed freight/taxes.",
-      "contact_info": "https://www.instagram.com/phutawan_official/",
+      "contact_info": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "promotion_status": "unknown",
@@ -3485,7 +3515,7 @@
           "store": "https://phutawanshop.com/?lang=en",
           "price": 150,
           "currency": "THB",
-          "contact": "https://www.instagram.com/phutawan_official/"
+          "contact": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7"
         }
       ]
     },
@@ -3508,7 +3538,12 @@
       "primary_url": "https://phutawanshop.com/?lang=en",
       "primary_role": "ערוץ המותג; זהות מפעל ותנאי סחר דורשים אישור",
       "seller_name": "Phutawan",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/phutawan-shop/",
+        "evidence": "https://phutawanshop.com/en/store-branch/",
+        "status": "מקושר מדף החנויות של היצרן; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the manufacturer store directory; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://phutawanshop.com/wp-content/uploads/2022/08/Coconut-Body-lotion_front-680x680.jpg",
       "image_source": "https://phutawanshop.com/en/product-category/coconut-series/",
@@ -3520,7 +3555,7 @@
       "source_url": "https://phutawanshop.com/en/product-category/coconut-series/",
       "id": "cl-8d73ff400cafaa67",
       "sourcing_warning_en": "Quality and delivery to 84280 require confirmation. Reference price excludes unconfirmed freight/taxes.",
-      "contact_info": "https://www.instagram.com/phutawan_official/",
+      "contact_info": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "promotion_status": "unknown",
@@ -3535,7 +3570,7 @@
           "store": "https://phutawanshop.com/?lang=en",
           "price": 350,
           "currency": "THB",
-          "contact": "https://www.instagram.com/phutawan_official/"
+          "contact": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7"
         }
       ]
     },
@@ -3558,7 +3593,12 @@
       "primary_url": "https://phutawanshop.com/?lang=en",
       "primary_role": "ערוץ המותג; זהות מפעל ותנאי סחר דורשים אישור",
       "seller_name": "Phutawan",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/phutawan-shop/",
+        "evidence": "https://phutawanshop.com/en/store-branch/",
+        "status": "מקושר מדף החנויות של היצרן; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the manufacturer store directory; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://phutawanshop.com/wp-content/uploads/2022/08/Coconut-hair-oil-serum_Box-680x680.jpg",
       "image_source": "https://phutawanshop.com/en/product-category/coconut-series/",
@@ -3570,7 +3610,7 @@
       "source_url": "https://phutawanshop.com/en/product-category/coconut-series/",
       "id": "cl-ed32cc4034c70658",
       "sourcing_warning_en": "Quality and delivery to 84280 require confirmation. Reference price excludes unconfirmed freight/taxes.",
-      "contact_info": "https://www.instagram.com/phutawan_official/",
+      "contact_info": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "promotion_status": "unknown",
@@ -3585,7 +3625,7 @@
           "store": "https://phutawanshop.com/?lang=en",
           "price": 450,
           "currency": "THB",
-          "contact": "https://www.instagram.com/phutawan_official/"
+          "contact": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7"
         }
       ]
     },
@@ -3608,7 +3648,12 @@
       "primary_url": "https://phutawanshop.com/?lang=en",
       "primary_role": "ערוץ המותג; זהות מפעל ותנאי סחר דורשים אישור",
       "seller_name": "Phutawan",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/phutawan-shop/",
+        "evidence": "https://phutawanshop.com/en/store-branch/",
+        "status": "מקושר מדף החנויות של היצרן; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the manufacturer store directory; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://phutawanshop.com/wp-content/uploads/2022/08/Coconut-Shower-gel_front.jpg",
       "image_source": "https://phutawanshop.com/en/product-category/coconut-series/",
@@ -3620,7 +3665,7 @@
       "source_url": "https://phutawanshop.com/en/product-category/coconut-series/",
       "id": "cl-a51144086b57bc27",
       "sourcing_warning_en": "Quality and delivery to 84280 require confirmation. Reference price excludes unconfirmed freight/taxes.",
-      "contact_info": "https://www.instagram.com/phutawan_official/",
+      "contact_info": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "promotion_status": "unknown",
@@ -3635,7 +3680,7 @@
           "store": "https://phutawanshop.com/?lang=en",
           "price": 300,
           "currency": "THB",
-          "contact": "https://www.instagram.com/phutawan_official/"
+          "contact": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7"
         }
       ]
     },
@@ -5833,7 +5878,12 @@
       "primary_url": "https://elegantkids.in.th/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Elegant Kids",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/elegant-kids/",
+        "evidence": "https://linktr.ee/Elegant_Kids",
+        "status": "מקושר מדף הקישורים של המותג; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the brand link page; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://cdn.shopify.com/s/files/1/2435/4547/files/56888.jpg?v=1764236954",
       "image_source": "https://elegantkids.in.th/collections/garments",
@@ -5845,7 +5895,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-329c13aa06efa6b4",
       "promotion_status": "unknown",
-      "contact_info": "https://elegantkids.in.th/th/pages/about-us",
+      "contact_info": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Kids clothing",
@@ -5859,7 +5909,7 @@
           "store": "https://elegantkids.in.th/",
           "price": 189,
           "currency": "THB",
-          "contact": "https://elegantkids.in.th/th/pages/about-us"
+          "contact": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000"
         }
       ]
     },
@@ -5883,7 +5933,12 @@
       "primary_url": "https://elegantkids.in.th/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Elegant Kids",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/elegant-kids/",
+        "evidence": "https://linktr.ee/Elegant_Kids",
+        "status": "מקושר מדף הקישורים של המותג; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the brand link page; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://cdn.shopify.com/s/files/1/2435/4547/files/56884.jpg?v=1764235866",
       "image_source": "https://elegantkids.in.th/collections/garments",
@@ -5895,7 +5950,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-8120ce376da5d290",
       "promotion_status": "unknown",
-      "contact_info": "https://elegantkids.in.th/th/pages/about-us",
+      "contact_info": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Kids clothing",
@@ -5909,7 +5964,7 @@
           "store": "https://elegantkids.in.th/",
           "price": 249,
           "currency": "THB",
-          "contact": "https://elegantkids.in.th/th/pages/about-us"
+          "contact": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000"
         }
       ]
     },
@@ -5933,7 +5988,12 @@
       "primary_url": "https://elegantkids.in.th/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Elegant Kids",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/elegant-kids/",
+        "evidence": "https://linktr.ee/Elegant_Kids",
+        "status": "מקושר מדף הקישורים של המותג; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the brand link page; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://cdn.shopify.com/s/files/1/2435/4547/files/57098.jpg?v=1786174588",
       "image_source": "https://elegantkids.in.th/collections/garments",
@@ -5945,7 +6005,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-bb685a9b59e30b3c",
       "promotion_status": "unknown",
-      "contact_info": "https://elegantkids.in.th/th/pages/about-us",
+      "contact_info": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Kids clothing",
@@ -5959,7 +6019,7 @@
           "store": "https://elegantkids.in.th/",
           "price": 249,
           "currency": "THB",
-          "contact": "https://elegantkids.in.th/th/pages/about-us"
+          "contact": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000"
         }
       ]
     },
@@ -5983,7 +6043,12 @@
       "primary_url": "https://elegantkids.in.th/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Elegant Kids",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/elegant-kids/",
+        "evidence": "https://linktr.ee/Elegant_Kids",
+        "status": "מקושר מדף הקישורים של המותג; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the brand link page; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://cdn.shopify.com/s/files/1/2435/4547/files/57089.jpg?v=1786094928",
       "image_source": "https://elegantkids.in.th/collections/garments",
@@ -5995,7 +6060,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-3e23956ef6f0136a",
       "promotion_status": "unknown",
-      "contact_info": "https://elegantkids.in.th/th/pages/about-us",
+      "contact_info": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Kids clothing",
@@ -6009,7 +6074,7 @@
           "store": "https://elegantkids.in.th/",
           "price": 259,
           "currency": "THB",
-          "contact": "https://elegantkids.in.th/th/pages/about-us"
+          "contact": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000"
         }
       ]
     },
@@ -6033,7 +6098,12 @@
       "primary_url": "https://elegantkids.in.th/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Elegant Kids",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/elegant-kids/",
+        "evidence": "https://linktr.ee/Elegant_Kids",
+        "status": "מקושר מדף הקישורים של המותג; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the brand link page; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://cdn.shopify.com/s/files/1/2435/4547/files/57074.jpg?v=1786779715",
       "image_source": "https://elegantkids.in.th/collections/garments",
@@ -6045,7 +6115,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-b9d34621eb59e412",
       "promotion_status": "unknown",
-      "contact_info": "https://elegantkids.in.th/th/pages/about-us",
+      "contact_info": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Kids clothing",
@@ -6059,7 +6129,7 @@
           "store": "https://elegantkids.in.th/",
           "price": 259,
           "currency": "THB",
-          "contact": "https://elegantkids.in.th/th/pages/about-us"
+          "contact": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000"
         }
       ]
     },
@@ -6083,7 +6153,12 @@
       "primary_url": "https://elegantkids.in.th/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Elegant Kids",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/elegant-kids/",
+        "evidence": "https://linktr.ee/Elegant_Kids",
+        "status": "מקושר מדף הקישורים של המותג; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the brand link page; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://cdn.shopify.com/s/files/1/2435/4547/files/57079_f85744c6-cfe9-414b-bd13-59c5f1725f44.jpg?v=1786780099",
       "image_source": "https://elegantkids.in.th/collections/garments",
@@ -6095,7 +6170,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-cce523fcc61e7136",
       "promotion_status": "unknown",
-      "contact_info": "https://elegantkids.in.th/th/pages/about-us",
+      "contact_info": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Kids clothing",
@@ -6109,7 +6184,7 @@
           "store": "https://elegantkids.in.th/",
           "price": 259,
           "currency": "THB",
-          "contact": "https://elegantkids.in.th/th/pages/about-us"
+          "contact": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000"
         }
       ]
     },
@@ -6133,7 +6208,12 @@
       "primary_url": "https://elegantkids.in.th/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Elegant Kids",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/elegant-kids/",
+        "evidence": "https://linktr.ee/Elegant_Kids",
+        "status": "מקושר מדף הקישורים של המותג; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the brand link page; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://cdn.shopify.com/s/files/1/2435/4547/files/57081.jpg?v=1786780389",
       "image_source": "https://elegantkids.in.th/collections/garments",
@@ -6145,7 +6225,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-b4ecd5d071d1c505",
       "promotion_status": "unknown",
-      "contact_info": "https://elegantkids.in.th/th/pages/about-us",
+      "contact_info": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Kids clothing",
@@ -6159,7 +6239,7 @@
           "store": "https://elegantkids.in.th/",
           "price": 259,
           "currency": "THB",
-          "contact": "https://elegantkids.in.th/th/pages/about-us"
+          "contact": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000"
         }
       ]
     },
@@ -6183,7 +6263,12 @@
       "primary_url": "https://elegantkids.in.th/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Elegant Kids",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/elegant-kids/",
+        "evidence": "https://linktr.ee/Elegant_Kids",
+        "status": "מקושר מדף הקישורים של המותג; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the brand link page; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://cdn.shopify.com/s/files/1/2435/4547/files/6_ELDH-56766.jpg?v=1756793482",
       "image_source": "https://elegantkids.in.th/collections/garments",
@@ -6195,7 +6280,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-e6f49ceeb164ea29",
       "promotion_status": "unknown",
-      "contact_info": "https://elegantkids.in.th/th/pages/about-us",
+      "contact_info": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Kids clothing",
@@ -6209,7 +6294,7 @@
           "store": "https://elegantkids.in.th/",
           "price": 269,
           "currency": "THB",
-          "contact": "https://elegantkids.in.th/th/pages/about-us"
+          "contact": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000"
         }
       ]
     },
@@ -6233,7 +6318,12 @@
       "primary_url": "https://elegantkids.in.th/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Elegant Kids",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/elegant-kids/",
+        "evidence": "https://linktr.ee/Elegant_Kids",
+        "status": "מקושר מדף הקישורים של המותג; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the brand link page; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://cdn.shopify.com/s/files/1/2435/4547/files/56886.jpg?v=1764236596",
       "image_source": "https://elegantkids.in.th/collections/garments",
@@ -6245,7 +6335,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-8ba177b8599ec46c",
       "promotion_status": "unknown",
-      "contact_info": "https://elegantkids.in.th/th/pages/about-us",
+      "contact_info": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Kids clothing",
@@ -6259,7 +6349,7 @@
           "store": "https://elegantkids.in.th/",
           "price": 269,
           "currency": "THB",
-          "contact": "https://elegantkids.in.th/th/pages/about-us"
+          "contact": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000"
         }
       ]
     },
@@ -6283,7 +6373,12 @@
       "primary_url": "https://elegantkids.in.th/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Elegant Kids",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/elegant-kids/",
+        "evidence": "https://linktr.ee/Elegant_Kids",
+        "status": "מקושר מדף הקישורים של המותג; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the brand link page; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://cdn.shopify.com/s/files/1/2435/4547/files/56873.jpg?v=1764302692",
       "image_source": "https://elegantkids.in.th/collections/garments",
@@ -6295,7 +6390,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-e5575ccf57012539",
       "promotion_status": "unknown",
-      "contact_info": "https://elegantkids.in.th/th/pages/about-us",
+      "contact_info": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Kids clothing",
@@ -6309,7 +6404,7 @@
           "store": "https://elegantkids.in.th/",
           "price": 269,
           "currency": "THB",
-          "contact": "https://elegantkids.in.th/th/pages/about-us"
+          "contact": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000"
         }
       ]
     },
@@ -6333,7 +6428,12 @@
       "primary_url": "https://elegantkids.in.th/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Elegant Kids",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/elegant-kids/",
+        "evidence": "https://linktr.ee/Elegant_Kids",
+        "status": "מקושר מדף הקישורים של המותג; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the brand link page; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://cdn.shopify.com/s/files/1/2435/4547/files/56874.jpg?v=1764303044",
       "image_source": "https://elegantkids.in.th/collections/garments",
@@ -6345,7 +6445,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-a7ff1d0943acab56",
       "promotion_status": "unknown",
-      "contact_info": "https://elegantkids.in.th/th/pages/about-us",
+      "contact_info": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Kids clothing",
@@ -6359,7 +6459,7 @@
           "store": "https://elegantkids.in.th/",
           "price": 269,
           "currency": "THB",
-          "contact": "https://elegantkids.in.th/th/pages/about-us"
+          "contact": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000"
         }
       ]
     },
@@ -6383,7 +6483,12 @@
       "primary_url": "https://elegantkids.in.th/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Elegant Kids",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/elegant-kids/",
+        "evidence": "https://linktr.ee/Elegant_Kids",
+        "status": "מקושר מדף הקישורים של המותג; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the brand link page; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://cdn.shopify.com/s/files/1/2435/4547/files/8_ELDR-56768_e9d18161-cfd5-4c84-b0cf-17ec53ed12bc.jpg?v=1756794426",
       "image_source": "https://elegantkids.in.th/collections/garments",
@@ -6395,7 +6500,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-5f815ea33ac420fe",
       "promotion_status": "unknown",
-      "contact_info": "https://elegantkids.in.th/th/pages/about-us",
+      "contact_info": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Kids clothing",
@@ -6409,7 +6514,7 @@
           "store": "https://elegantkids.in.th/",
           "price": 279,
           "currency": "THB",
-          "contact": "https://elegantkids.in.th/th/pages/about-us"
+          "contact": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000"
         }
       ]
     },
@@ -6805,7 +6910,12 @@
       "primary_url": "https://phutawanshop.com/?lang=en",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Phutawan",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/phutawan-shop/",
+        "evidence": "https://phutawanshop.com/en/store-branch/",
+        "status": "מקושר מדף החנויות של היצרן; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the manufacturer store directory; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://phutawanshop.com/wp-content/uploads/2023/01/Coconut-Shower-Oil_front-680x680.jpg",
       "image_source": "https://phutawanshop.com/en/product-category/coconut-series/",
@@ -6817,7 +6927,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-13544c07ab1a56a3",
       "promotion_status": "unmarked",
-      "contact_info": "https://www.instagram.com/phutawan_official/",
+      "contact_info": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Beauty & care for mum",
@@ -6831,7 +6941,7 @@
           "store": "https://phutawanshop.com/?lang=en",
           "price": 450,
           "currency": "THB",
-          "contact": "https://www.instagram.com/phutawan_official/"
+          "contact": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7"
         }
       ]
     },
@@ -6855,7 +6965,12 @@
       "primary_url": "https://phutawanshop.com/?lang=en",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Phutawan",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/phutawan-shop/",
+        "evidence": "https://phutawanshop.com/en/store-branch/",
+        "status": "מקושר מדף החנויות של היצרן; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the manufacturer store directory; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://phutawanshop.com/wp-content/uploads/2022/08/Coconut-salt-scrub_front-680x680.jpg",
       "image_source": "https://phutawanshop.com/en/product-category/coconut-series/",
@@ -6867,7 +6982,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-b7320f6fac8b2a73",
       "promotion_status": "unmarked",
-      "contact_info": "https://www.instagram.com/phutawan_official/",
+      "contact_info": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Beauty & care for mum",
@@ -6881,7 +6996,7 @@
           "store": "https://phutawanshop.com/?lang=en",
           "price": 320,
           "currency": "THB",
-          "contact": "https://www.instagram.com/phutawan_official/"
+          "contact": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7"
         }
       ]
     },
@@ -6905,7 +7020,12 @@
       "primary_url": "https://phutawanshop.com/?lang=en",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Phutawan",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/phutawan-shop/",
+        "evidence": "https://phutawanshop.com/en/store-branch/",
+        "status": "מקושר מדף החנויות של היצרן; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the manufacturer store directory; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://phutawanshop.com/wp-content/uploads/2022/08/Coconut-body-scrub-butter_front-680x680.jpg",
       "image_source": "https://phutawanshop.com/en/product-category/coconut-series/",
@@ -6917,7 +7037,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-0680312e5cabe84c",
       "promotion_status": "unmarked",
-      "contact_info": "https://www.instagram.com/phutawan_official/",
+      "contact_info": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Beauty & care for mum",
@@ -6931,7 +7051,7 @@
           "store": "https://phutawanshop.com/?lang=en",
           "price": 320,
           "currency": "THB",
-          "contact": "https://www.instagram.com/phutawan_official/"
+          "contact": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7"
         }
       ]
     },
@@ -6955,7 +7075,12 @@
       "primary_url": "https://phutawanshop.com/?lang=en",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Phutawan",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/phutawan-shop/",
+        "evidence": "https://phutawanshop.com/en/store-branch/",
+        "status": "מקושר מדף החנויות של היצרן; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the manufacturer store directory; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://phutawanshop.com/wp-content/uploads/2022/08/Coconut-Hair-conditioner_front-680x680.jpg",
       "image_source": "https://phutawanshop.com/en/product-category/coconut-series/",
@@ -6967,7 +7092,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-754ec660fa0e5e5a",
       "promotion_status": "unmarked",
-      "contact_info": "https://www.instagram.com/phutawan_official/",
+      "contact_info": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Beauty & care for mum",
@@ -6981,7 +7106,7 @@
           "store": "https://phutawanshop.com/?lang=en",
           "price": 300,
           "currency": "THB",
-          "contact": "https://www.instagram.com/phutawan_official/"
+          "contact": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7"
         }
       ]
     },
@@ -7005,7 +7130,12 @@
       "primary_url": "https://phutawanshop.com/?lang=en",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Phutawan",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/phutawan-shop/",
+        "evidence": "https://phutawanshop.com/en/store-branch/",
+        "status": "מקושר מדף החנויות של היצרן; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the manufacturer store directory; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://phutawanshop.com/wp-content/uploads/2022/08/Coconut-hair-treatment_front-680x680.jpg",
       "image_source": "https://phutawanshop.com/en/product-category/coconut-series/",
@@ -7017,7 +7147,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-5600b59250df4323",
       "promotion_status": "unmarked",
-      "contact_info": "https://www.instagram.com/phutawan_official/",
+      "contact_info": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Beauty & care for mum",
@@ -7031,7 +7161,7 @@
           "store": "https://phutawanshop.com/?lang=en",
           "price": 300,
           "currency": "THB",
-          "contact": "https://www.instagram.com/phutawan_official/"
+          "contact": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7"
         }
       ]
     },
@@ -7055,7 +7185,12 @@
       "primary_url": "https://phutawanshop.com/?lang=en",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Phutawan",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/phutawan-shop/",
+        "evidence": "https://phutawanshop.com/en/store-branch/",
+        "status": "מקושר מדף החנויות של היצרן; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the manufacturer store directory; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://phutawanshop.com/wp-content/uploads/2022/08/Coconut-Hair-shampoo_front-680x680.jpg",
       "image_source": "https://phutawanshop.com/en/product-category/coconut-series/",
@@ -7067,7 +7202,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-27f96cd78e515aab",
       "promotion_status": "unmarked",
-      "contact_info": "https://www.instagram.com/phutawan_official/",
+      "contact_info": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Beauty & care for mum",
@@ -7081,7 +7216,7 @@
           "store": "https://phutawanshop.com/?lang=en",
           "price": 300,
           "currency": "THB",
-          "contact": "https://www.instagram.com/phutawan_official/"
+          "contact": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7"
         }
       ]
     },
@@ -7105,7 +7240,12 @@
       "primary_url": "https://phutawanshop.com/?lang=en",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Phutawan",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/phutawan-shop/",
+        "evidence": "https://phutawanshop.com/en/store-branch/",
+        "status": "מקושר מדף החנויות של היצרן; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the manufacturer store directory; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://phutawanshop.com/wp-content/uploads/2026/05/Coconut-Soap-Bar-Packset-680x680.jpg",
       "image_source": "https://phutawanshop.com/en/product-category/coconut-series/",
@@ -7117,7 +7257,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-ac25f4d3c108f048",
       "promotion_status": "unmarked",
-      "contact_info": "https://www.instagram.com/phutawan_official/",
+      "contact_info": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Beauty & care for mum",
@@ -7131,7 +7271,7 @@
           "store": "https://phutawanshop.com/?lang=en",
           "price": 360,
           "currency": "THB",
-          "contact": "https://www.instagram.com/phutawan_official/"
+          "contact": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7"
         }
       ]
     },
@@ -7155,7 +7295,12 @@
       "primary_url": "https://phutawanshop.com/?lang=en",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
       "seller_name": "Phutawan",
-      "lazada_store": null,
+      "lazada_store": {
+        "url": "https://www.lazada.co.th/shop/phutawan-shop/",
+        "evidence": "https://phutawanshop.com/en/store-branch/",
+        "status": "מקושר מדף החנויות של היצרן; מלאי ומחיר מק״ט לא אומתו",
+        "status_en": "Linked from the manufacturer store directory; SKU stock and price not verified."
+      },
       "lazada_offer": null,
       "image_url": "https://phutawanshop.com/wp-content/uploads/2022/08/Coconut-hydrating-butter-680x680.jpg",
       "image_source": "https://phutawanshop.com/en/product-category/coconut-series/",
@@ -7167,7 +7312,7 @@
       "sourcing_warning_en": "Sample quality and confirm exact variant, wholesale terms, invoice and shipping to 84280. Prices are observations, not guaranteed repeat-order costs.",
       "id": "cl-ed6c4aebc1874940",
       "promotion_status": "unmarked",
-      "contact_info": "https://www.instagram.com/phutawan_official/",
+      "contact_info": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7",
       "invoice_status": "Employee to request; supplier ability / invoice type not confirmed",
       "platform": "Thailand brand / store",
       "category_en": "Beauty & care for mum",
@@ -7181,7 +7326,7 @@
           "store": "https://phutawanshop.com/?lang=en",
           "price": 450,
           "currency": "THB",
-          "contact": "https://www.instagram.com/phutawan_official/"
+          "contact": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7"
         }
       ]
     },
@@ -7609,8 +7754,8 @@
       "quality": "מפרט ספק; דגימה ותווית נדרשות.",
       "shipping": "לא אושר למשלוח 84280",
       "decision": "דגימה והצעת ספק לפני אישור",
-      "note": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. No export USD price used as a Thai wholesale price. Toothpaste fluoride/age details require the exact label.",
-      "summary_en": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. No export USD price used as a Thai wholesale price. Toothpaste fluoride/age details require the exact label.",
+      "note": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. A local THB quotation is required. Toothpaste fluoride/age details require the exact label.",
+      "summary_en": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. A local THB quotation is required. Toothpaste fluoride/age details require the exact label.",
       "primary_name": "SuperBee",
       "primary_url": "https://superbee.me/wholesale/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
@@ -7663,8 +7808,8 @@
       "quality": "מפרט ספק; דגימה ותווית נדרשות.",
       "shipping": "לא אושר למשלוח 84280",
       "decision": "דגימה והצעת ספק לפני אישור",
-      "note": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. No export USD price used as a Thai wholesale price. Toothpaste fluoride/age details require the exact label.",
-      "summary_en": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. No export USD price used as a Thai wholesale price. Toothpaste fluoride/age details require the exact label.",
+      "note": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. A local THB quotation is required. Toothpaste fluoride/age details require the exact label.",
+      "summary_en": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. A local THB quotation is required. Toothpaste fluoride/age details require the exact label.",
       "primary_name": "SuperBee",
       "primary_url": "https://superbee.me/wholesale/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
@@ -7717,8 +7862,8 @@
       "quality": "מפרט ספק; דגימה ותווית נדרשות.",
       "shipping": "לא אושר למשלוח 84280",
       "decision": "דגימה והצעת ספק לפני אישור",
-      "note": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. No export USD price used as a Thai wholesale price. Toothpaste fluoride/age details require the exact label.",
-      "summary_en": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. No export USD price used as a Thai wholesale price. Toothpaste fluoride/age details require the exact label.",
+      "note": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. A local THB quotation is required. Toothpaste fluoride/age details require the exact label.",
+      "summary_en": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. A local THB quotation is required. Toothpaste fluoride/age details require the exact label.",
       "primary_name": "SuperBee",
       "primary_url": "https://superbee.me/wholesale/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
@@ -7771,8 +7916,8 @@
       "quality": "מפרט ספק; דגימה ותווית נדרשות.",
       "shipping": "לא אושר למשלוח 84280",
       "decision": "דגימה והצעת ספק לפני אישור",
-      "note": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. No export USD price used as a Thai wholesale price. Toothpaste fluoride/age details require the exact label.",
-      "summary_en": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. No export USD price used as a Thai wholesale price. Toothpaste fluoride/age details require the exact label.",
+      "note": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. A local THB quotation is required. Toothpaste fluoride/age details require the exact label.",
+      "summary_en": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. A local THB quotation is required. Toothpaste fluoride/age details require the exact label.",
       "primary_name": "SuperBee",
       "primary_url": "https://superbee.me/wholesale/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
@@ -7825,8 +7970,8 @@
       "quality": "מפרט ספק; דגימה ותווית נדרשות.",
       "shipping": "לא אושר למשלוח 84280",
       "decision": "דגימה והצעת ספק לפני אישור",
-      "note": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. No export USD price used as a Thai wholesale price. Toothpaste fluoride/age details require the exact label.",
-      "summary_en": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. No export USD price used as a Thai wholesale price. Toothpaste fluoride/age details require the exact label.",
+      "note": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. A local THB quotation is required. Toothpaste fluoride/age details require the exact label.",
+      "summary_en": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. A local THB quotation is required. Toothpaste fluoride/age details require the exact label.",
       "primary_name": "SuperBee",
       "primary_url": "https://superbee.me/wholesale/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
@@ -7879,8 +8024,8 @@
       "quality": "מפרט ספק; דגימה ותווית נדרשות.",
       "shipping": "לא אושר למשלוח 84280",
       "decision": "דגימה והצעת ספק לפני אישור",
-      "note": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. No export USD price used as a Thai wholesale price. Toothpaste fluoride/age details require the exact label.",
-      "summary_en": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. No export USD price used as a Thai wholesale price. Toothpaste fluoride/age details require the exact label.",
+      "note": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. A local THB quotation is required. Toothpaste fluoride/age details require the exact label.",
+      "summary_en": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. A local THB quotation is required. Toothpaste fluoride/age details require the exact label.",
       "primary_name": "SuperBee",
       "primary_url": "https://superbee.me/wholesale/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
@@ -7933,8 +8078,8 @@
       "quality": "מפרט ספק; דגימה ותווית נדרשות.",
       "shipping": "לא אושר למשלוח 84280",
       "decision": "דגימה והצעת ספק לפני אישור",
-      "note": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. No export USD price used as a Thai wholesale price. Toothpaste fluoride/age details require the exact label.",
-      "summary_en": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. No export USD price used as a Thai wholesale price. Toothpaste fluoride/age details require the exact label.",
+      "note": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. A local THB quotation is required. Toothpaste fluoride/age details require the exact label.",
+      "summary_en": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. A local THB quotation is required. Toothpaste fluoride/age details require the exact label.",
       "primary_name": "SuperBee",
       "primary_url": "https://superbee.me/wholesale/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
@@ -7987,8 +8132,8 @@
       "quality": "מפרט ספק; דגימה ותווית נדרשות.",
       "shipping": "לא אושר למשלוח 84280",
       "decision": "דגימה והצעת ספק לפני אישור",
-      "note": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. No export USD price used as a Thai wholesale price. Toothpaste fluoride/age details require the exact label.",
-      "summary_en": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. No export USD price used as a Thai wholesale price. Toothpaste fluoride/age details require the exact label.",
+      "note": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. A local THB quotation is required. Toothpaste fluoride/age details require the exact label.",
+      "summary_en": "Manufacturer product link found. Request local THB trade price, pack size, materials/ingredients and a sample through the brand contact or LINE. A local THB quotation is required. Toothpaste fluoride/age details require the exact label.",
       "primary_name": "SuperBee",
       "primary_url": "https://superbee.me/wholesale/",
       "primary_role": "ערוץ המותג; תנאי מסחר וחשבונית דורשים אישור",
@@ -8311,7 +8456,7 @@
       "url": "https://phutawanshop.com/?lang=en",
       "evidence": "לפי צ׳אט 17.10 יש מדרגות הנחה; אתר רשמי אותר",
       "shipping": "לא אושר",
-      "contact": "https://www.instagram.com/phutawan_official/",
+      "contact": "https://www.instagram.com/phutawan_official/ ; https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7",
       "next_step": "מתחיל 5,000 באט ב־15%; לא להגדיל הזמנה רק בשביל הנחה; לבדוק חשבונית ודוגמאות"
     },
     {
@@ -8374,7 +8519,7 @@
       "url": "https://elegantkids.in.th/",
       "evidence": "יצרן תאילנדי עם ערוץ wholesale לפי האתר",
       "shipping": "לא אושר",
-      "contact": "https://elegantkids.in.th/th/pages/about-us",
+      "contact": "https://elegantkids.in.th/th/pages/about-us ; https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000",
       "next_step": "ליין רגוע, הרכב ואישור לכל בד, MOQ ומידות"
     },
     {

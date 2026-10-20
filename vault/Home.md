@@ -8,3 +8,5 @@ A Markdown knowledge vault; open this folder in any Markdown editor or Obsidian.
 - [Original public sourcing links](../research/Original-Sourcing-Links.md)
 - [Decisions](Decisions.md)
 - [Backup and publishing](Backup-and-Publishing.md)
+
+- [Purchasing requirements — 20 October 2026](Requirements-2026-10-20.md)

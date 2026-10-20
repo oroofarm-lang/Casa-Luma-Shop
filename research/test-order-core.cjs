@@ -13,7 +13,7 @@ assert.equal(C.totals(groups.find(x=>x.supplier==='PlanToys').lines).amounts.THB
 assert(C.editLine(state,mouse,mouseLine.id,'qty','5'));assert.equal(C.group(state,ps).some(g=>g.supplier==='PlanToys'),false,'edited approved line excluded');C.setStatus(state,mouse,'approved');
 C.hide(state,mouse);assert.equal(state.items[mouse.id].status,'skip');assert(!C.group(state,ps).some(g=>g.supplier==='PlanToys'));state.items[mouse.id].hidden=false;assert(!C.group(state,ps).some(g=>g.supplier==='PlanToys'),'restoring visibility does not reapprove');
 const l=C.addLine(state,lotion);C.editLine(state,lotion,l.id,'source','lazada');assert.equal(l.unitPrice,229);assert(C.setStatus(state,lotion,'approved'));assert(C.group(state,ps).some(g=>g.supplier==='Khun Organic Baby · Lazada'));
-const usd=C.addLine(state,sb);C.setStatus(state,sb,'approved');const mixed=C.totals([{row:l},{row:usd}]);assert.equal(mixed.amounts.THB,229);assert.equal(mixed.amounts.USD,29.99);
+const usd=C.addLine(state,sb);C.setStatus(state,sb,'approved');const mixed=C.totals([{row:l},{row:usd}]);assert.equal(mixed.amounts.THB,229);assert.equal(mixed.amounts.USD,undefined);assert.equal(mixed.unknown.THB,1);
 C.editLine(state,lotion,l.id,'unit','carton');assert.equal(l.unitPrice,null,'unit change must clear incompatible reference price');assert.equal(C.setStatus(state,lotion,'approved'),true);assert.equal(C.totals(C.group(state,ps).find(g=>g.supplier==='Khun Organic Baby · Lazada').lines).unknown.THB,1);
 C.editLine(state,lotion,l.id,'unitPrice','100');C.editLine(state,lotion,l.id,'priceKind','quote');assert.equal(l.priceKind,'quote');C.editLine(state,lotion,l.id,'colour','blue');assert.equal(l.priceKind,'reference','old quote not treated as quote for new variant');C.setStatus(state,lotion,'approved');
 groups=C.group(state,ps);const eg=groups.find(x=>x.supplier==='Elegant Kids');const en=C.message(eg,state.settings,'en'),th=C.message(eg,state.settings,'th');assert(en.includes('6–12m')&&en.includes('18–24m')&&en.includes('84280'));assert(th.includes('จำนวน:')&&th.includes(clothes.name_en)&&th.includes('84280'));assert(!en.includes(mouse.name_en));
@@ -45,4 +45,32 @@ elements['price-filter'].value='unmarked';elements['price-filter'].events.change
 elements['platform-filter'].value='';elements['price-filter'].value='';elements['sort-order'].value='discount';elements['sort-order'].events.change();assert(C.sortProducts(ps,'discount')[0].price!==null);
 assert(en.includes('Our employee will request the invoice directly'));assert(th.includes('ใบกำกับภาษี'));
 const shein=ps.filter(p=>p.platform==='SHEIN'),sheinWork=C.defaultState();for(const p of shein.slice(0,3)){let row=C.addLine(sheinWork,p);row.model='sample exact SKU';C.setStatus(sheinWork,p,'approved');}assert.equal(C.group(sheinWork,shein).length,3,'Unverified marketplace sellers are not merged into one supplier');
+// Requirements: budget boundaries, THB migration, editable supplier facts and deletion survive export/reload.
+const req=C.defaultState(), rr=C.addLine(req,mouse);
+assert.equal(C.budget(mouse,req.items[mouse.id]),'within');
+C.editLine(req,mouse,rr.id,'unitPrice','250');assert.equal(C.budget(mouse,req.items[mouse.id]),'within');
+C.editLine(req,mouse,rr.id,'unitPrice','250.01');assert.equal(C.budget(mouse,req.items[mouse.id]),'over');
+C.editLine(req,mouse,rr.id,'unitPrice','');assert.equal(C.budget(mouse,req.items[mouse.id]),'unknown');
+C.editLine(req,mouse,rr.id,'unitPrice','180');assert(C.setStatus(req,mouse,'approved'));
+C.updateInfo(req,mouse,'stock','out_of_stock');assert.equal(req.items[mouse.id].status,'shortlist');assert(!C.setStatus(req,mouse,'approved'));assert.equal(C.group(req,ps).length,0);
+C.updateInfo(req,mouse,'stock','in_stock');C.updateInfo(req,mouse,'invoiceStatus','received');C.updateInfo(req,mouse,'invoiceType','tax_invoice');C.updateInfo(req,mouse,'supplierNotes','Invoice CL-42 received');C.setStatus(req,mouse,'approved');
+assert(C.message(C.group(req,ps)[0],req.settings).includes('Invoice: Received'));
+assert(C.csv(req,ps).includes('tax_invoice'));
+for(let n=0;n<3;n++){C.save(storage,req);const loaded=C.load(storage,ps);assert.equal(loaded.items[mouse.id].invoiceStatus,'received');assert.equal(loaded.items[mouse.id].stock,'in_stock');}
+const legacy=structuredClone(req);legacy.items[mouse.id].lines[0].currency='USD';legacy.items[mouse.id].lines[0].unitPrice=29.99;legacy.items[mouse.id].lines[0].priceKind='quote';
+assert.equal(C.normalize(legacy,ps).state.items[mouse.id].status,'shortlist');const migrated=C.normalize(legacy,ps).state.items[mouse.id].lines[0];assert.equal(migrated.unitPrice,null);assert.equal(migrated.currency,'THB');assert.equal(migrated.priceKind,'reference');
+assert(C.updateInfo(req,mouse,'lazadaUrl','https://www.lazada.co.th/shop/example/'));assert(!C.updateInfo(req,mouse,'lazadaUrl','https://lazada.co.th.example.com/'));assert(!C.lazadaUrl('javascript:alert(1)'));
+assert(ps.every(p=>p.currency==='THB'&&p.sources.every(s=>s.currency==='THB')));
+C.deleteProduct(req,mouse);assert.equal(req.items[mouse.id].lines.length,0);C.save(storage,req);assert(C.load(storage,ps).items[mouse.id].deleted);assert.equal(C.group(req,ps).length,0);
+// UI editing routes really save supplier state, show THB-only controls and filter the budget.
+elements['platform-filter'].value='';elements['price-filter'].value='';elements['budget-filter'].value='over';elements['budget-filter'].events.change();assert(elements['catalog-grid'].innerHTML.includes('budget-warning'));
+elements['budget-filter'].value='';elements['budget-filter'].events.change();
+elements['catalog-grid'].events.click({target:{closest:()=>({dataset:{action:'restore',pid:mouse.id}})}});
+elements['catalog-grid'].events.change({target:{dataset:{info:'invoiceStatus',pid:mouse.id},value:'received'}});
+assert(elements['catalog-grid'].innerHTML.includes('value="received" selected'));
+elements['catalog-grid'].events.click({target:{closest:()=>({dataset:{action:'delete',pid:mouse.id}})}});
+assert(!elements['catalog-grid'].innerHTML.includes('data-id="'+mouse.id+'"'));
+elements['show-hidden'].checked=true;elements['show-hidden'].events.change();assert(elements['catalog-grid'].innerHTML.includes('data-id="'+mouse.id+'"'));
+elements['catalog-grid'].events.click({target:{closest:()=>({dataset:{action:'restore',pid:mouse.id}})}});
+assert(elements['supplier-table'].innerHTML.includes('https://line.me/R/ti/p/@adaily.factory'));assert(elements['supplier-table'].innerHTML.includes('https://line.me/R/ti/p/@commandpstudio'));assert(elements['supplier-table'].innerHTML.includes('>LINE ↗</a>'));assert(!elements['catalog-grid'].innerHTML.includes('data-field="currency"'));assert(elements['catalog-grid'].innerHTML.includes('data-action="delete"'));
 console.log(JSON.stringify({core:'passed',persistenceRounds:rounds,englishThaiMessages:'passed',sourceGrouping:'passed',unitPriceReset:'passed',invalidImport:'rejected',bootstrapAndDecisionEvents:'passed',categories:new Set(ps.map(p=>p.category)).size,products:ps.length},null,2));

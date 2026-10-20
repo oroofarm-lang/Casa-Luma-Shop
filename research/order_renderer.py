@@ -14,7 +14,21 @@ CATEGORIES={
 }
 
 def prepare(products,suppliers):
+    # Store links observed through brand-owned pages; not proof of current SKU stock.
+    channels={
+      'Phutawan':dict(url='https://www.lazada.co.th/shop/phutawan-shop/',evidence='https://phutawanshop.com/en/store-branch/',status='מקושר מדף החנויות של היצרן; מלאי ומחיר מק״ט לא אומתו',status_en='Linked from the manufacturer store directory; SKU stock and price not verified.',contacts='https://www.facebook.com/phutawan.official ; https://www.instagram.com/phutawan_official/ ; https://shopee.co.th/phutawanshop ; https://lin.ee/ElzCDd7'),
+      'Elegant Kids':dict(url='https://www.lazada.co.th/shop/elegant-kids/',evidence='https://linktr.ee/Elegant_Kids',status='מקושר מדף הקישורים של המותג; מלאי ומחיר מק״ט לא אומתו',status_en='Linked from the brand link page; SKU stock and price not verified.',contacts='https://www.instagram.com/elegantkids_2000/ ; https://line.me/ti/p/7dQOu4HBPV ; https://shopee.co.th/elegantkids2000'),
+    }
+    for n,supplier in enumerate(suppliers):
+        if supplier[0] in channels:
+            row=list(supplier);extra=channels[supplier[0]]['contacts']
+            if extra not in row[5]:row[5]+=' ; '+extra
+            suppliers[n]=tuple(row)
     for p in products:
+        if p.get('primary_name') in channels:
+            channel=channels[p['primary_name']]
+            p['lazada_store']={k:v for k,v in channel.items() if k!='contacts'}
+            if channel['contacts'] not in p.get('contact_info',''):p['contact_info']=p.get('contact_info','')+' ; '+channel['contacts']
         p['category_en']=CATEGORIES[p['category']]
         p['requires_details']=bool(p.get('options_hint')) or p['category'] in ['בגדים ואביזרי ילדים','ים, שמש ושחייה','מוצרי Casa Luma'] or p.get('kind') in ['lead','collection','custom']
         p['source_url']=p.get('source_url') or p['url']
@@ -28,6 +42,16 @@ def prepare(products,suppliers):
         if p.get('lazada_offer'):
             o=p['lazada_offer'];sources.append(dict(id='lazada',supplier='Khun Organic Baby · Lazada',channel='Lazada shop',url=o['url'],store=p['lazada_store']['url'],price=o['price'],currency='THB',contact=p['lazada_store']['url']))
         p['sources']=p.get('order_sources') or sources
+        if p['currency']!='THB':
+            p['price']=None;p['regular']=None;p['currency']='THB';p['promotion_status']='unknown'
+            p['note']='יש לבקש מחיר ספק בבאט תאילנדי; לא בוצעה המרת מטבע.'
+            p['evidence']='יש לבקש מחיר בבאט; מחיר המקור במטבע זר הושמט ללא המרה.'
+            p['summary_en']='Request a supplier quotation in THB. No currency conversion has been applied.'
+        for key in ['note','summary_en']:
+            if p.get(key):p[key]=p[key].replace('No export USD price used as a Thai wholesale price.','A local THB quotation is required.')
+        for source in p['sources']:
+            if source.get('currency')!='THB':source['price']=None
+            source['currency']='THB'
     return products
 
 def render(products,suppliers,laz,searches,out):

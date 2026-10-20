@@ -10,3 +10,4 @@ research/*-extracted.txt
 .env.*
 *.pem
 *.key
+vault/.obsidian/
