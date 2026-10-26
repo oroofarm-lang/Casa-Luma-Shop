@@ -1,0 +1,26 @@
+name: Casa Shop Studio checks
+on:
+  push:
+    paths:
+      - 'studio/**'
+      - '.github/workflows/casa-shop-studio-check.yml'
+  pull_request:
+    paths:
+      - 'studio/**'
+      - '.github/workflows/casa-shop-studio-check.yml'
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: studio
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: 'studio/package.json'
+      - run: node --check server.js
+      - run: node --check public/app.js
+      - run: node -e "const d=require('./data/catalog-seed.json'); if(d.products.length!==154||d.suppliers.length<13) process.exit(1); console.log(d.products.length+' catalog products, '+d.suppliers.length+' suppliers')"
