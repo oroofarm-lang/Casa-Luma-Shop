@@ -1,5 +1,23 @@
 # Casa Luma — בחירה והכנת הזמנה
 
+## המסלול הנוכחי — רכש ואימות ספקים, 23.10.2026
+
+סעיף זה מחליף את הוראות המחיר החופשי וסטטוס ״מאושר״ בהמשך המסמך. יתר הסעיפים נשמרים כתיעוד של הגרסאות הקודמות.
+
+1. מסננים מוצרים לפי קטגוריה, ספק, טווח אומדן בבאט וזמינות. מחיר המקור הוא אומדן תקציבי בלבד.
+2. האומדן נעול כברירת מחדל. לשינוי יזום לוחצים **פתיחת עריכת אומדן** בכרטיס או בסל. ממלאים כמות, דגם ומידה ומוסיפים לסל.
+3. בסל מסמנים שורות ומוודאים כמויות ופרטי דגם. אומדן חסר מוצג בנפרד; אינו אפס. לוחצים **אישור והעברה לטיפול עובד**. הרשימות מפוצלות לפי ספק וערוץ וננעלות במצב ״בטיפול עובד״; השורות הנבחרות יוצאות מהסל.
+4. פותחים **אימות ספקים · עובד**. העובד פונה לספק בעצמו וממלא באנגלית כמות זמינה ומחיר סופי לכל שורה; עלות הובלה, זמן אספקה ל־84280, מינימום ערך הזמנה בבאט, סוג מסמך ואישורו, תנאי תשלום ואסמכתת שיחה. מסמנים שבוצע אימות מול הספק. הערות חופשיות הן רשות. אפס נדרש במפורש להובלה חינם או ללא מינימום ערך.
+5. **Submit for final approval** פעיל רק כשכל דרישות האימות מולאו וכמות המלאי מספיקה. הכפתור מעביר ל״ממתין לאישור סופי״ ונועל את נתוני האימות. המחיר הסופי נשמר בנפרד מאומדן הרשימה.
+6. בעלים יכול לאשר סופית, להחזיר לעובד או לבטל רשימה בטיפול. אישור סופי הוא החלטה פנימית; אין תשלום או ביצוע הזמנה אוטומטי.
+7. בחנות הסטטית הכל נשמר בדפדפן. **דף לעובד** מייצא עותק באנגלית; העובד מחזיר קובץ עבודה עם האימות. קובץ אינו סנכרון חי ואינו מנגנון הרשאות מאומת. במערכת עם שרת ואימות משתמשים, הרשאות ומעברים נאכפים גם בשרת; פריסה כזו טרם אומתה כחיה.
+
+### Current employee flow
+
+Open **Employee verification** and contact each supplier using the listed channels. Record actual available quantities and final unit prices, shipping cost, delivery time to 84280, minimum order value in THB, invoice/receipt type and confirmation, payment terms and conversation reference. Enter zero explicitly for free shipping or no minimum value; use notes for any per-item quantity minimum. Confirm that supplier contact took place. **Submit for final approval** unlocks only when every required check is complete. The original quantities, variants and budget estimates remain frozen. After submission only the owner can return the checklist or give final internal approval. No message, payment or external order is sent automatically. On a local employee page, export a work file to return results to the owner.
+
+## תיעוד גרסאות קודמות
+
 הקטלוג המקומי: [פתיחת כלי הרכש](Casa-Luma-Sourcing-Catalog.html). עודכן ב־20.10.2026. יש 154 מוצרים ולידים, 13 קטגוריות ו־36 רשומות ספקים. אין ברשימה בחירות התחלתיות בשם המשתמש.
 
 1. מסננים קטגוריה, מחפשים מוצר ופותחים את פרטי המקור. מחיר ציבורי אינו מחיר סוחר והמשלוח למיקוד 84280 דורש אישור.

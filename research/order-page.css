@@ -5,3 +5,16 @@
 .your-price input{padding-right:50px;padding-left:10px}.price-currency{inset-inline-end:auto;right:22px;left:auto}@media(max-width:540px){.your-price input{padding-right:32px;padding-left:8px}.price-currency{right:15px}}
 
 .sync-status{font-size:11px;color:#5e744f;max-width:160px}.sync-alert{position:sticky;top:85px;z-index:21}.sync-alert button{font-size:12px;margin:3px}.team-row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid #ddd}.team-row button{font-size:11px}@media(max-width:540px){.header-actions{flex-wrap:wrap;justify-content:end}.sync-status{max-width:90px;font-size:9px}.header-actions #logout,.header-actions #team-button{font-size:10px;min-height:28px;padding:4px}}
+
+/* Procurement checklist follows the existing card and form system. */
+input[readonly]{background:#f3efe9;color:#736d66;border-style:dashed}
+.verification-panel{margin-top:24px;padding-top:18px;border-top:1px solid #d7cebf}
+.verification-panel fieldset{border:1px solid #d7cebf;border-radius:8px;padding:16px;min-width:0}
+.verification-panel legend{font-weight:600;padding:0 8px}
+.verification-panel label{display:block;margin:12px 0}
+.verification-panel label.check{display:flex;align-items:center;gap:10px}
+.verification-panel input:not([type=checkbox]),.verification-panel select,.verification-panel textarea{width:100%;box-sizing:border-box;padding:10px;border:1px solid #d7cebf;border-radius:6px;font:inherit;background:#fffdf9}
+.verification-panel input[type=checkbox]{width:auto}
+.verification-line{padding-bottom:16px;border-bottom:1px solid #e9dfd0}
+.verification-total{font-size:1.1rem;font-weight:600}
+.verification-panel fieldset:disabled{opacity:.8}

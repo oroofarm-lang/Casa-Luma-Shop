@@ -48,18 +48,65 @@ assert(C.updateInfo(req,mouse,'lazadaUrl','https://www.lazada.co.th/shop/example
 assert(ps.every(p=>p.currency==='THB'&&p.sources.every(s=>s.currency==='THB')));
 // Execute the new storefront and real event handlers against a minimal DOM fixture.
 const template=fs.readFileSync(path.join(__dirname,'order-page.html.in'),'utf8'),ids=[...template.matchAll(/id="([^"]+)"/g)].map(x=>x[1]);
-class Element{constructor(id){this.id=id;this.value='';this.textContent='';this.innerHTML='';this.hidden=false;this.checked=false;this.dataset={};this.events={};this.tagName='DIV';this.classList={toggle(){},add(){},remove(){}};}addEventListener(k,f){this.events[k]=f;}setAttribute(k,v){this[k]=v;}querySelectorAll(){return [];}querySelector(){return null;}focus(){}select(){}showModal(){this.open=true;}close(){this.open=false;}}
+class Element{constructor(id){this.id=id;this.value='';this.textContent='';this.innerHTML='';this.hidden=false;this.checked=false;this.dataset={};this.events={};this.tagName='DIV';this.classList={toggle(){},add(){},remove(){}};}addEventListener(k,f){const previous=this.events[k];this.events[k]=previous?(e=>{previous(e);return f(e);}):f;}setAttribute(k,v){this[k]=v;}querySelectorAll(){return [];}querySelector(){return null;}focus(){}select(){}showModal(){this.open=true;}close(){this.open=false;}}
 const elements=Object.fromEntries(ids.map(id=>[id,new Element(id)]));elements['catalog-data'].textContent=JSON.stringify(data);elements['initial-state'].textContent='null';const documentEvents={},browserStorage=new Map(),ctx=vm.createContext({document:{getElementById:id=>elements[id],documentElement:{},addEventListener:(key,fn)=>documentEvents[key]=fn},window:{},URL,crypto:globalThis.crypto,structuredClone,Blob,console,setTimeout:()=>0,clearTimeout(){},localStorage:{getItem:k=>browserStorage.get(k)||null,setItem:(k,v)=>browserStorage.set(k,v)},navigator:{},confirm:()=>false});
 vm.runInContext(fs.readFileSync(path.join(__dirname,'order-core.js'),'utf8'),ctx);ctx.CasaOrder=ctx.window.CasaOrder;vm.runInContext(fs.readFileSync(path.join(__dirname,'order-page.js'),'utf8'),ctx);
 assert.equal((elements['catalog-grid'].innerHTML.match(/class="product-card /g)||[]).length,ps.length);
-assert.equal((elements['catalog-grid'].innerHTML.match(/data-field="unitPrice"/g)||[]).length,ps.length,'every product has a visible editable price before adding');
+assert.equal((elements['catalog-grid'].innerHTML.match(/data-field="unitPrice"/g)||[]).length,ps.length,'every product shows its estimate before adding');
+assert(elements['catalog-grid'].innerHTML.includes('readonly aria-readonly="true"'));
 elements.language.events.change({target:{value:'en'}});assert.equal(elements['catalog-title'].textContent,'Build your next collection.');
+elements['catalog-grid'].events.click({target:{closest:()=>({dataset:{action:'unlock-price',pid:mouse.id,scope:'draft'}})}});
 elements['catalog-grid'].events.input({target:{dataset:{scope:'draft',pid:mouse.id,field:'unitPrice'},value:'225',tagName:'INPUT',closest:()=>null}});
 assert.equal(JSON.parse([...browserStorage.values()][0]).items[mouse.id].draft.unitPrice,225);
 elements['catalog-grid'].events.click({target:{closest:()=>({dataset:{action:'add',pid:mouse.id}})}});
 assert(elements['cart-link'].textContent.includes('1'));documentEvents.click({target:{closest:()=>({dataset:{view:'cart'}})}});assert(elements['cart-items'].innerHTML.includes(mouse.name_en));
-assert(elements['cart-items'].innerHTML.includes('value="225"'));elements.checkout.events.click();assert(elements['order-history'].innerHTML.includes(mouse.name_en));assert.equal(elements['message-dialog'].open,true);assert(elements['message-text'].value.includes('225.00 THB'));assert.equal(JSON.parse([...browserStorage.values()][0]).orders.length,1);
+assert(elements['cart-items'].innerHTML.includes('value="225"'));elements.checkout.events.click();assert(elements['order-history'].innerHTML.includes(mouse.name_en));assert(elements['verification-queue'].innerHTML.includes('Submit for final approval'));assert.equal(JSON.parse([...browserStorage.values()][0]).orders[0].status,'pending_verification');assert.equal(JSON.parse([...browserStorage.values()][0]).orders.length,1);
 elements['search'].value='No match at all xyz';elements['search'].events.input();assert.equal(elements['catalog-empty'].hidden,false);
 assert(elements['supplier-directory'].innerHTML.includes('https://line.me/R/ti/p/@adaily.factory'));
 assert(elements['supplier-directory'].innerHTML.includes('https://line.me/R/ti/p/@commandpstudio'));
 console.log(JSON.stringify({core:'passed',legacyPersistenceRounds:rounds,shoppingOrderPersistence:savedOrderRoundTrips,visiblePriceInputs:ps.length,cartMergeAndVariants:'passed',supplierChannelCheckout:'passed',quoteVsOrderValidation:'passed',historicalSnapshot:'passed',storefrontEventFlow:'passed',products:ps.length},null,2));
+
+// Requisitions freeze the estimate and require a complete, separate supplier checklist.
+let rq=C.defaultState();C.editDraft(rq,mouse,'unitPrice','');C.addToCart(rq,mouse);C.editDraft(rq,lotion,'source','lazada');C.addToCart(rq,lotion);
+assert.throws(()=>C.submitRequisition(rq,ps,'employee'),/owner-required/);
+const rqs=C.submitRequisition(rq,ps);assert.equal(rqs.length,2);assert.equal(C.cartLines(rq,ps).length,0);
+const ro=rqs[0],rid=ro.lines[0].row.id;assert.equal(ro.status,'pending_verification');assert.equal(ro.lines[0].row.unitPrice,null);
+assert(!C.updateOrder(rq,ro.id,'received'));assert(!C.transitionRequisition(rq,ro.id,'approved_to_order','owner'));
+assert(!C.transitionRequisition(rq,ro.id,'ready_for_approval'));
+for(const [key,value] of Object.entries({availableQty:ro.lines[0].row.qty,finalPrice:180}))C.editVerification(rq,ro.id,key,value,rid);
+for(const [key,value] of Object.entries({shippingCost:0,deliveryTime:'2 days',minimumOrder:0,invoiceConfirmed:true,invoiceType:'receipt',paymentTerms:'COD',supplierConfirmed:true,verifiedWith:'Test supplier call',notes:'Synthetic'}))C.editVerification(rq,ro.id,key,value);
+assert.deepEqual(C.verificationIssues(ro),[]);assert.equal(C.verifiedTotal(ro).total,180);
+C.editVerification(rq,ro.id,'minimumOrder',9999);assert(C.verificationIssues(ro).includes('minimumNotMet'));C.editVerification(rq,ro.id,'minimumOrder',0);
+assert(C.transitionRequisition(rq,ro.id,'ready_for_approval','employee'));assert(!C.editVerification(rq,ro.id,'shippingCost',30));
+assert(!C.transitionRequisition(rq,ro.id,'approved_to_order','employee'));assert(C.transitionRequisition(rq,ro.id,'pending_verification','owner'));
+assert(C.editVerification(rq,ro.id,'notes','Checked again'));assert(C.transitionRequisition(rq,ro.id,'ready_for_approval','employee'));assert(C.transitionRequisition(rq,ro.id,'approved_to_order','owner'));
+for(let run=1;run<=3;run++){C.save(storage,rq);rq=C.load(storage,ps);const restored=rq.orders.find(o=>o.id===ro.id);assert.equal(restored.status,'approved_to_order');assert.equal(restored.lines[0].row.unitPrice,null);assert.equal(restored.verification.lines[rid].finalPrice,180);assert.equal(rq.orders.length,2);console.log(JSON.stringify({requisitionPersistenceRound:run,status:restored.status,estimate:restored.lines[0].row.unitPrice,finalPrice:restored.verification.lines[rid].finalPrice,orders:rq.orders.length}));}
+console.log('Requisition gates, supplier checklist, owner permissions and persistence passed');
+
+const pending=structuredClone(rq.orders[0]);pending.status='pending_verification';
+const returned=structuredClone(pending);returned.verification.notes='Employee return file';returned.status='ready_for_approval';
+const merged=C.mergeSharedOrders([pending],[returned]);assert.equal(merged.length,1);assert.equal(merged[0].verification.notes,'Employee return file');assert.equal(merged[0].status,'ready_for_approval');
+const changed=structuredClone(returned);changed.lines[0].row.qty=999;assert.throws(()=>C.mergeSharedOrders([pending],[changed]),/frozen shopping list/);
+assert.throws(()=>C.mergeSharedOrders([],[returned]),/pending requisitions only/);
+console.log('Shared employee-return import preserves checklist updates and rejects changed snapshots');
+// Drive the employee UI handlers through completion, not only the pure model.
+const uiOrder=JSON.parse([...browserStorage.values()][0]).orders[0],uiLine=uiOrder.lines[0].row.id;
+assert(elements['verification-queue'].innerHTML.includes('disabled>Submit for final approval'));
+function verifyField(key,value,lineId=''){
+ const el={dataset:{verify:key,oid:uiOrder.id,...(lineId?{verifyLine:lineId}:{})},type:typeof value==='boolean'?'checkbox':'text',tagName:'INPUT',value:String(value),checked:value===true};
+ elements['verification-queue'].events.change({target:el});
+}
+verifyField('availableQty',uiOrder.lines[0].row.qty,uiLine);verifyField('finalPrice',180,uiLine);
+for(const [key,value] of Object.entries({shippingCost:0,deliveryTime:'Synthetic QA delivery',minimumOrder:0,invoiceType:'receipt',invoiceConfirmed:true,paymentTerms:'QA COD',verifiedWith:'Synthetic QA, no supplier contacted',supplierConfirmed:true}))verifyField(key,value);
+assert(!elements['verification-queue'].innerHTML.includes('disabled>Submit for final approval'));
+assert(elements['verification-queue'].innerHTML.includes('Confirmed total incl. shipping: 180 THB'));
+function requisitionButton(status){return {target:{closest:selector=>selector==='[data-requisition-status]'?{dataset:{oid:uiOrder.id,requisitionStatus:status}}:null}};}
+elements['verification-queue'].events.click(requisitionButton('ready_for_approval'));
+assert.equal(JSON.parse([...browserStorage.values()][0]).orders[0].status,'ready_for_approval');
+assert(elements['verification-queue'].innerHTML.includes('Final owner approval'));
+assert(elements['verification-queue'].innerHTML.includes('fieldset disabled'));
+elements['verification-queue'].events.click(requisitionButton('approved_to_order'));
+assert.equal(JSON.parse([...browserStorage.values()][0]).orders[0].status,'approved_to_order');
+assert(elements['verification-queue'].innerHTML.includes('No requisitions awaiting'));
+assert.equal(JSON.parse([...browserStorage.values()][0]).orders[0].lines[0].row.unitPrice,225);
+console.log('Employee UI change/click events: mandatory checks, final total, submission, field locking, owner approval passed');

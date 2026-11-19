@@ -7,6 +7,7 @@ from urllib.parse import urlsplit
 from argon2 import PasswordHasher
 from argon2.exceptions import VerifyMismatchError, InvalidHashError
 from fastapi import FastAPI, Request, HTTPException
+from server.procurement import STATUSES, validate_verification, validate_changes
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, Response
 
 ROOT=Path(__file__).resolve().parent.parent
@@ -226,10 +227,13 @@ def validate_state(state):
     for order in state.get('orders',[]):
         if not isinstance(order,dict) or not isinstance(order.get('id'),str) or order['id'] in ids or not isinstance(order.get('lines'),list) or len(order['lines'])>1000:raise HTTPException(422,'Invalid saved order')
         ids.add(order['id'])
-        if order.get('status') not in ['prepared','sent','confirmed','ordered','received','cancelled'] or order.get('kind') not in ['order','quote']:raise HTTPException(422,'Invalid order status')
+        if order.get('status') not in ['prepared','sent','confirmed','ordered','received','cancelled',*STATUSES] or order.get('kind') not in ['order','quote','requisition']:raise HTTPException(422,'Invalid order status')
         for line in order['lines']:
             if not isinstance(line,dict) or not isinstance(line.get('row'),dict) or not isinstance(line.get('product'),dict) or not isinstance(line.get('source'),dict):raise HTTPException(422,'Invalid saved line')
             row_check(line['row'],known=False)
+        if order['kind']=='requisition':
+            if order['status'] not in STATUSES:raise HTTPException(422,'Invalid requisition status')
+            validate_verification(order,order['status'] in ['ready_for_approval','approved_to_order'])
     # Reject JSON NaN/Infinity, oversized strings and dangerous unbounded nesting.
     encoded=json.dumps(state,ensure_ascii=False,allow_nan=False)
     if len(encoded.encode())>7_000_000:raise HTTPException(413,'Export/archive older orders before adding more data')
@@ -248,10 +252,8 @@ def save_workspace(request:Request,body:dict):
             return {'version':completed['version']}
         old=db.one('SELECT version,data FROM workspace WHERE id=1')
         if old['version']!=body['version']:raise HTTPException(409,'A teammate saved newer changes. Back up your edits and reload.')
-        previous=json.loads(old['data']);new_orders={o['id']:o for o in state.get('orders',[])}
-        for o in previous.get('orders',[]):
-            newer=new_orders.get(o['id'])
-            if not newer or {k:v for k,v in newer.items() if k not in ['status','updatedAt']}!={k:v for k,v in o.items() if k not in ['status','updatedAt']}:raise HTTPException(422,'Saved order contents are immutable; cancel or repeat the order instead')
+        previous=json.loads(old['data'])
+        validate_changes(previous,state,user['role'])
         version=old['version']+1
         db.execute('UPDATE workspace SET version=?,data=?,updated_by=?,updated_at=? WHERE id=1',(version,encoded,user['id'],int(time.time())))
         db.execute('INSERT INTO workspace_revisions VALUES(?,?,?,?)',(version,encoded,user['id'],int(time.time())))

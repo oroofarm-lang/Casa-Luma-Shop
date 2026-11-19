@@ -73,3 +73,33 @@ def render(products,suppliers,laz,searches,out):
     (out/'Casa-Luma-Sourcing-Catalog.html').write_text(template)
     # Keep the already-open user URL usable; the source template has a .in suffix.
     (out/'order-page.html').write_text(template)
+
+
+def rebuild_from_catalog(out, copy_to_docs=False):
+    """Rebuild only storefront HTML; do not regenerate research or publish anything."""
+    import ast
+    import shutil
+    data=json.loads((out/'catalog-data.json').read_text())
+    # These public lookup lists are literal source data. Reading their AST avoids
+    # executing build_research.py, which also rewrites research and source archives.
+    lookups={}
+    for node in ast.parse((out/'build_research.py').read_text()).body:
+        if isinstance(node,ast.Assign):
+            for target in node.targets:
+                if isinstance(target,ast.Name) and target.id in ['LAZ','SEARCHES']:
+                    lookups[target.id]=ast.literal_eval(node.value)
+    fields=['name','category','url','evidence','shipping','contact','next_step']
+    suppliers=[tuple(s.get(k,'') for k in fields) for s in data['suppliers']]
+    render(data['products'],suppliers,lookups['LAZ'],lookups['SEARCHES'],out)
+    if copy_to_docs:
+        shutil.copyfile(out/'order-page.html',out.parent/'docs/index.html')
+    return len(data['products'])
+
+
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser(description='Rebuild storefront HTML locally from catalog-data.json and the source template. No network or deployment.')
+    parser.add_argument('--copy-to-docs',action='store_true',help='Also refresh the local docs/index.html build artifact; does not publish it')
+    args=parser.parse_args()
+    count=rebuild_from_catalog(Path(__file__).resolve().parent,args.copy_to_docs)
+    print(f'Rebuilt storefront for {count} products; local docs copy: {args.copy_to_docs}; no deployment.')

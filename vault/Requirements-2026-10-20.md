@@ -1,6 +1,6 @@
 # Purchasing requirements — 20 October 2026
 
-Implemented in the local and hosted catalog:
+Local catalog behavior recorded on 20 October 2026 (the live hosted site was not reverified during context organization):
 
 - THB only; foreign-currency references become unpriced and require a THB supplier quotation. Previous approvals involving foreign prices return to shortlist.
 - 250 THB budget per order unit, inclusive at 250; filters for within / over / missing price, with over-budget warnings in cards, order rows and supplier messages.
@@ -8,7 +8,7 @@ Implemented in the local and hosted catalog:
 - Reversible local product deletion; deletes order lines, does not delete other users’ data or shared catalog sources.
 - Named clickable platform, email and phone links; a Lazada link on every product and supplier row. Unlocated direct shops use an explicitly unverified search, never an invented official shop. Staff may enter a Lazada link.
 - Editable stock availability, invoice status/type and supplier notes, with update timestamp. Out-of-stock blocks approval; preorder invalidates old approval.
-- State round trips through browser persistence and JSON; employee snapshots carry these fields. CSV includes status fields. This remains a static site without live multi-user synchronization.
+- State round trips through browser persistence and JSON; employee snapshots carry these fields. CSV includes status fields. These exports and browser persistence describe static mode. Authenticated shared cart and orders are the approved target; local server/synchronization code exists, with production deployment still pending verification.
 
 Sources for new supplier channels:
 - https://phutawanshop.com/en/store-branch/

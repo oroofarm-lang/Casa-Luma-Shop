@@ -2,13 +2,17 @@
 
 ## Purpose and experience
 
-A curated purchasing store for the owner and employee: browse → edit unit price/variant → add to cart → review selected rows → prepare separate supplier/channel drafts → track the employee's actions. The Casa Luma cream, sand, charcoal and sage identity is retained. Prices are THB only; 250 THB is a warning/filter, not an arbitrary ban.
+A curated purchasing store for the owner and employee: browse → deliberately unlock a budget estimate if needed → add variants and quantities to cart → transfer locked requisitions by supplier/channel → employee supplier verification → owner final approval. The Casa Luma cream, sand, charcoal and sage identity is retained. Prices are THB only; 250 THB is a warning/filter, not an arbitrary ban.
 
-The price input appears directly on **every product card before adding to cart**, with a second editable price in every cart row. The supplier's observed reference price is a separate, dated label. Product draft changes do not silently rewrite existing cart rows or historic orders.
+The price input appears directly on **every product card before adding to cart**, with a second estimate in every cart row; both are read-only until deliberately unlocked. The employee records final prices in a separate supplier checklist. The supplier's observed reference price is a separate, dated label. Product draft changes do not silently rewrite existing cart rows or historic orders.
 
-## Boundaries
+## Approved target and current status
 
-The deployed GitHub Pages frontend and its catalog are public. Actual cart, buyer information and order history stay in browser storage or explicitly exported files. This implementation does not claim authentication, access restriction or multi-user synchronization. A question about shared authenticated work versus local-file handoff was sent to the owner; no answer has been assumed.
+The owner selected authenticated shared work: one cart and order workspace for owner and employee. This decision supersedes the earlier open question about local-file handoff.
+
+The existing GitHub Pages catalog is public and static. In static mode, cart, buyer information and order history stay in browser storage or explicitly exported files; GitHub Pages does not provide authenticated shared storage. The live website was not rechecked during this documentation work.
+
+Local shared-mode code exists in `server/app.py` and `research/order-page.js`. It has not been verified here as a production deployment. No production accounts, durable cloud database or successful live synchronization are claimed.
 
 No payment, supplier message, tax invoice or marketplace purchase is sent or created automatically. “Sent”, “confirmed” and “ordered” are employee-reported tracking states.
 
@@ -18,7 +22,8 @@ No payment, supplier message, tax invoice or marketplace purchase is sent or cre
 2. **Domain service**: `research/order-core.js`, browser-independent. Validates quantities, sources, THB prices and variants; separates cart from product draft and order snapshot; splits checkout by the actual supplier plus channel.
 3. **Workspace repository**: version-2 local-storage document, JSON backup/import and employee snapshot. Compatible with prior work files. Three save/reload rounds cover both old selections and saved purchase orders.
 4. **Storefront presentation**: `research/order-page.js`, `.css`, `.html.in`, rendered by `order_renderer.py`. Product, Cart, Orders and Suppliers views; Hebrew/English UI; English/Thai supplier messages. Responsive layout.
-5. **Publishing**: complete local HTML and identical `docs/index.html`; GitHub Pages publishes only `/docs`.
+5. **Publishing**: local HTML and `docs/index.html` are identical in the 20 October file audit; the documented GitHub Pages target is main `/docs`. Local equality does not verify the deployed website.
+6. **Shared-mode code**: FastAPI serves authenticated pages and a versioned workspace API; the frontend has shared save/refresh/conflict handling. The server stores workspace JSON, revisions, request IDs and audit events. SQLite is available locally; production mode requires PostgreSQL via `DATABASE_URL`. This describes code present, not a verified live service.
 
 ## Entities and ownership
 
@@ -42,7 +47,9 @@ No payment, supplier message, tax invoice or marketplace purchase is sent or cre
 - Order snapshots retain the exact price, variant, source and buyer details at creation. Later catalog/cart edits cannot rewrite them.
 - Repeat-order action adds copied variants to the current cart as reference prices, requiring a fresh review.
 
-## Authenticated shared deployment — next architecture if selected
+## Authenticated shared deployment — approved direction
+
+The following is the target architecture and review checklist. It is not a list of completed server features: the current server stores one versioned workspace JSON document rather than the normalized business tables proposed below. Validate authorization, transaction boundaries and retry behavior before production deployment.
 
 Use the same domain boundaries with an authenticated API and transactional database instead of publishing workspace JSON:
 
@@ -56,4 +63,8 @@ Use the same domain boundaries with an authenticated API and transactional datab
 - Database backups and restore testing; private invoice attachments with authorized downloads and retention policy. Audit history records actor, object, changed fields and time.
 - Source-marketplace price/stock scraping is not represented as live integration. Only explicit future connectors or team-entered verified data should change those facts.
 
-A hosting provider, login method and shared-workspace requirement must be selected before this service is provisioned. The current static site is not mislabeled as that completed deployment.
+Shared work is selected. Hosting, durable database operations, production account setup and deployment verification remain pending. The local implementation uses password login and sessions; its production readiness still requires review and full two-user verification. See [current tasks](../entities/casa-luma/tasks.md).
+
+## Procurement verification update — 23 October 2026
+
+The local implementation now separates frozen requisition estimates from supplier-confirmed final prices. See [workflow, permissions and validation evidence](Procurement-Verification-Workflow.md). New requisitions cannot reach final approval without the mandatory checklist. `server/procurement.py` independently checks transitions and owner permissions. Eight HTTP integration tests use synthetic owner/employee accounts; browser completion and production deployment remain unverified. Rebuild only the storefront with `python3 research/order_renderer.py --copy-to-docs`; this updates local artifacts without publishing.

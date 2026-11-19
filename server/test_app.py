@@ -104,4 +104,59 @@ class SharedWorkspaceTests(unittest.TestCase):
             self.assertEqual(fresh.post('/api/login',json={'email':'owner@example.test','password':self.password},headers=ORIGIN).status_code,200)
             self.assertEqual(fresh.get('/api/workspace').json()['state']['settings']['poReference'],'PO-'+str(n))
 
+    def requisition(self):
+        state=mod.default_state();p=mod.CATALOG[0];src=p['sources'][0]
+        row=dict(id='test-line',source=src['id'],qty=2,unit='piece',unitPrice=199,currency='THB',model='',size='',colour='',pack='',note='',priceKind='reference')
+        state['orders']=[dict(id='test-requisition',number='CL-test',batchId='test',createdAt='2026-10-20',updatedAt='2026-10-20',kind='requisition',status='pending_verification',supplier=src['supplier'],channel=src['channel'],url=src['url'],contact=src['contact'],settings=copy.deepcopy(state['settings']),lines=[dict(product=p,row=row,source=src,info={})],verification=dict(lines={'test-line':dict(availableQty=None,finalPrice=None)},shippingCost=None,deliveryTime='',minimumOrder=None,invoiceConfirmed=False,invoiceType='unknown',paymentTerms='',supplierConfirmed=False,verifiedWith='',notes=''))]
+        return state
+    def complete_verification(self,state):
+        state['orders'][0]['verification']=dict(lines={'test-line':dict(availableQty=2,finalPrice=180)},shippingCost=0,deliveryTime='2 days to 84280',minimumOrder=0,invoiceConfirmed=True,invoiceType='receipt',paymentTerms='COD',supplierConfirmed=True,verifiedWith='Synthetic supplier call',notes='Test only')
+    def test_requisition_two_users_complete_workflow(self):
+        self.setup_owner();self.add_employee();state=self.requisition()
+        self.assertEqual(self.put(self.employee,state,0,self.employee_csrf).status_code,403)
+        premature=copy.deepcopy(state);self.complete_verification(premature);premature['orders'][0]['status']='ready_for_approval'
+        self.assertEqual(self.put(self.owner,premature,0,self.csrf).status_code,422)
+        self.assertEqual(self.put(self.owner,state,0,self.csrf).status_code,200)
+        work=self.employee.get('/api/workspace').json()['state']
+        work['orders'][0]['status']='ready_for_approval'
+        self.assertEqual(self.put(self.employee,work,1,self.employee_csrf).status_code,422)
+        work['orders'][0]['status']='pending_verification';self.complete_verification(work)
+        self.assertEqual(self.put(self.employee,work,1,self.employee_csrf).status_code,200)
+        tampered=copy.deepcopy(work);tampered['orders'][0]['lines'][0]['row']['unitPrice']=180
+        self.assertEqual(self.put(self.employee,tampered,2,self.employee_csrf).status_code,422)
+        work['orders'][0]['status']='ready_for_approval'
+        rid=uuid.uuid4().hex
+        self.assertEqual(self.put(self.employee,work,2,self.employee_csrf,rid).status_code,200)
+        self.assertEqual(self.put(self.employee,work,2,self.employee_csrf,rid).json()['version'],3)
+        self.assertEqual(self.put(self.owner,work,2,self.csrf).status_code,409)
+        final=copy.deepcopy(work);final['orders'][0]['status']='approved_to_order'
+        self.assertEqual(self.put(self.employee,final,3,self.employee_csrf).status_code,403)
+        self.assertEqual(self.put(self.owner,final,3,self.csrf).status_code,200)
+        final['orders'][0]['verification']['shippingCost']=20
+        self.assertEqual(self.put(self.owner,final,4,self.csrf).status_code,422)
+        for _ in range(3):
+            mod.initialize()
+            saved=self.employee.get('/api/workspace').json()['state']['orders'][0]
+            self.assertEqual(saved['status'],'approved_to_order')
+            self.assertEqual(saved['lines'][0]['row']['unitPrice'],199)
+            self.assertEqual(saved['verification']['lines']['test-line']['finalPrice'],180)
+    def test_requisition_required_fields_and_return_for_revision(self):
+        self.setup_owner();self.add_employee();state=self.requisition();self.complete_verification(state)
+        self.assertEqual(self.put(self.owner,state,0,self.csrf).status_code,200)
+        for key,value in [('invoiceConfirmed',False),('supplierConfirmed',False),('shippingCost',None),('shippingCost',-1),('deliveryTime',' '),('minimumOrder',None),('minimumOrder',9999),('paymentTerms',''),('verifiedWith',''),('invoiceType','unknown')]:
+            bad=copy.deepcopy(state);bad['orders'][0]['status']='ready_for_approval';bad['orders'][0]['verification'][key]=value
+            self.assertEqual(self.put(self.employee,bad,1,self.employee_csrf).status_code,422,(key,value))
+        for key,value in [('availableQty',1),('availableQty',2.5),('finalPrice',None),('finalPrice',-1)]:
+            bad=copy.deepcopy(state);bad['orders'][0]['status']='ready_for_approval';bad['orders'][0]['verification']['lines']['test-line'][key]=value
+            self.assertEqual(self.put(self.employee,bad,1,self.employee_csrf).status_code,422,(key,value))
+        bad=copy.deepcopy(state);bad['orders'][0]['status']='approved_to_order'
+        self.assertEqual(self.put(self.owner,bad,1,self.csrf).status_code,403)
+        state['orders'][0]['status']='ready_for_approval'
+        self.assertEqual(self.put(self.employee,state,1,self.employee_csrf).status_code,200)
+        state['orders'][0]['status']='pending_verification'
+        self.assertEqual(self.put(self.employee,state,2,self.employee_csrf).status_code,403)
+        self.assertEqual(self.put(self.owner,state,2,self.csrf).status_code,200)
+        state['orders'][0]['verification']['notes']='Rechecked'
+        self.assertEqual(self.put(self.employee,state,3,self.employee_csrf).status_code,200)
+
 if __name__=='__main__':unittest.main(verbosity=2)
