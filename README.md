@@ -1,6 +1,6 @@
 # Casa Luma Shop
 
-Sourcing catalog and purchasing workspace for Casa Luma, Koh Phangan, Thailand 84280.
+Sourcing storefront, shopping cart, saved purchase-order drafts and purchasing workspace for Casa Luma, Koh Phangan, Thailand 84280.
 
 ## Open and share
 
@@ -11,6 +11,8 @@ The catalog includes 154 products and leads across 13 categories. Use English fo
 Choices are saved in each browser, not synchronized between users. Export an employee HTML snapshot or JSON work file to transfer selections. No order is sent automatically.
 
 ## Project knowledge
+
+Architecture: [Internal purchasing storefront](vault/Internal-Shop-Architecture.md).
 
 Start with [Vault Home](vault/Home.md) and [Ordering Guide](research/Ordering-Guide.md).
 
