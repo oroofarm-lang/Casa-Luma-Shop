@@ -1,5 +1,37 @@
 # Casa Luma Shop
 
+## מה זה
+סביבת רכש ל-Casa Luma, קפה ומסעדה בקו פנגן, תאילנד. היא כוללת קטלוג של 154 מוצרים ולידים ב-13 קטגוריות, ומדריך להזמנות מספקים.
+
+## למי זה
+לבעלים ולעובדים של Casa Luma שבוחרים מוצרים ומכינים הזמנות לספקים.
+
+## איך מריצים
+- הקטלוג: פותחים את `docs/index.html` בדפדפן. אין צורך בהתקנה.
+- בדיקת הלוגיקה: `node research/test-order-core.cjs`
+- אפליקציית Studio (פרטית, Node 20+ ו-PostgreSQL):
+  ```
+  cd studio
+  npm install
+  npm start
+  ```
+  משתני הסביבה הנדרשים מופיעים ב-`studio/.env.example`.
+- עדכון האתר: מעתיקים `research/order-page.html` ל-`docs/index.html`, ואז commit ו-push ל-`main`.
+
+## איפה זה חי
+- אתר הקטלוג (GitHub Pages, מתוך `main` בתיקיית `/docs`): https://oroofarm-lang.github.io/Casa-Luma-Shop/
+- אפליקציית Studio: מיועדת לפריסה ב-Railway (לפי `studio/README.md`). כתובת הפריסה: לא ידוע.
+
+## איפה המדיה
+אין מדיה כבדה בריפו. הגיבוי המלא של הקבצים הפרטיים (ZIP) נמצא רק בדיסק המקומי, בתיקיית `backups/`, ואינו ב-GitHub.
+
+## עוד
+ראו `CLAUDE.md` למבנה התיקיות ולכללי העבודה, ו-`vault/Home.md` לידע הפרויקט.
+
+---
+
+# Casa Luma Shop
+
 Sourcing catalog and purchasing workspace for Casa Luma, Koh Phangan, Thailand 84280.
 
 ## Open and share
